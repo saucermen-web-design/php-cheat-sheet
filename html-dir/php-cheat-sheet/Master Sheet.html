@@ -1,0 +1,2728 @@
+
+				<!DOCTYPE html>
+				<html>
+					<head>
+						<meta charset="UTF-8">
+						<link rel="stylesheet" href="pluginAssets/katex/katex.css"><script type="application/javascript" src="pluginAssets/mermaid/mermaid.min.js"></script><script type="application/javascript" src="pluginAssets/mermaid/mermaid_render.js"></script><link rel="stylesheet" href="pluginAssets/highlight.js/atom-one-light.css">
+						<title>Master Sheet</title>
+					</head>
+					<body>
+						<div class="exported-note"><div class="exported-note-title">Master Sheet</div>
+
+<style>
+		/* https://necolas.github.io/normalize.css/ */
+		html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}
+		article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}
+		pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}
+		b,strong{font-weight:bolder}small{font-size:80%}img{border-style:none}
+
+		body {
+			font-size: 15px;
+			color: #32373F;
+			word-wrap: break-word;
+			line-height: 1.6em;
+			background-color: #ffffff;
+			font-family: 'Avenir', 'Arial', sans-serif;
+			padding-bottom: 0px;
+			padding-top: 0px;
+		}
+		strong {
+			color: #000000;
+		}
+		kbd {
+			border: 1px solid rgb(220, 220, 220);
+			box-shadow: inset 0 -1px 0 rgb(220, 220, 220);
+			padding: 2px 4px;
+			border-radius: 3px;
+			background-color: rgb(243, 243, 243);
+		}
+		::-webkit-scrollbar {
+			width: 7px;
+			height: 7px;
+		}
+		::-webkit-scrollbar-corner {
+			background: none;
+		}
+		::-webkit-scrollbar-track {
+			border: none;
+		}
+		::-webkit-scrollbar-thumb {
+			background: rgba(100, 100, 100, 0.3); 
+			border-radius: 5px;
+		}
+		::-webkit-scrollbar-track:hover {
+			background: rgba(0, 0, 0, 0.1); 
+		}
+		::-webkit-scrollbar-thumb:hover {
+			background: rgba(100, 100, 100, 0.7); 
+		}
+
+		/* Remove top padding and margin from first child so that top of rendered text is aligned to top of text editor text */
+
+		#rendered-md > h1:first-child,
+		#rendered-md > h2:first-child,
+		#rendered-md > h3:first-child,
+		#rendered-md > h4:first-child,
+		#rendered-md > ul:first-child,
+		#rendered-md > ol:first-child,
+		#rendered-md > table:first-child,
+		#rendered-md > blockquote:first-child,
+		#rendered-md > img:first-child,
+		#rendered-md > p:first-child {
+			margin-top: 0;
+			padding-top: 0;
+		}
+		
+		p, h1, h2, h3, h4, h5, h6, ul, table {
+			margin-top: .6em;
+			margin-bottom: .65em;
+
+			/*
+				Adds support for RTL text in the note body. It automatically detects the direction using the content.
+				Issue: https://github.com/laurent22/joplin/issues/3991
+			*/
+			unicode-bidi: plaintext;
+		}
+		h1, h2, h3, h4, h5, h6 {
+			line-height: 1.5em;
+		}
+		h1 {
+			font-size: 1.5em;
+			font-weight: bold;
+			border-bottom: 1px solid #dddddd;
+			padding-bottom: .3em;
+		}
+		h2 {
+			font-size: 1.3em;
+			font-weight: bold;
+			padding-bottom: .1em; */
+		}
+		h3 {
+			font-size: 1.1em;
+		}
+		h4, h5, h6 {
+			font-size: 1em;
+			font-weight: bold;
+		}
+
+		.exported-note-title {
+			font-size: 2em;
+			font-weight: bold;
+			margin-bottom: 0.8em;
+			line-height: 1.5em;
+			padding-bottom: .35em;
+			border-bottom: 1px solid #dddddd;
+		}
+
+		a {
+			color: #155BDA;
+		}
+		ul, ol {
+			padding-left: 0;
+			margin-left: 1.7em;
+		}
+		li {
+			margin-bottom: .4em;
+		}
+		li p {
+			margin-top: 0.2em;
+			margin-bottom: 0;
+		}
+
+		.resource-icon {
+			display: inline-block;
+			position: relative;
+			top: 0.3em;
+			text-decoration: none;
+			width: 1.2em;
+			height: 1.4em;
+			margin-right: 0.4em;
+			background-color:  #155BDA;
+		}
+    /* These icons are obtained from the wonderful ForkAwesome project by copying the src svgs 
+     * into the css classes below.
+     * svgs are obtained from https://github.com/ForkAwesome/Fork-Awesome/tree/master/src/icons/svg
+     * instead of the svg width, height property you must use a viewbox here, 0 0 1536 1792 is typically the actual size of the icon
+     * each line begins with the pre-amble -webkit-mask: url("data:image/svg+xml;utf8,
+     * and of course finishes with ");
+     * to precvent artifacts it is also necessary to include -webkit-mask-repeat: no-repeat;
+     * on the following line
+     * */
+		.fa-joplin {
+			/* Awesome Font file */
+			-webkit-mask: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1536 1792' xmlns='http://www.w3.org/2000/svg'><path d='M373.834 128C168.227 128 0 296.223 0 501.834v788.336C0 1495.778 168.227 1664 373.834 1664h788.336c205.608 0 373.83-168.222 373.83-373.83V501.834C1536 296.224 1367.778 128 1162.17 128zm397.222 205.431h417.424a7.132 7.132 0 0 1 7.132 7.133v132.552c0 4.461-3.619 8.073-8.077 8.073h-57.23c-24.168 0-43.768 19.338-44.284 43.374v2.377h-.017v136.191h-.053l-.466 509.375c-5.02 77.667-39.222 149.056-96.324 201.046-60.28 54.834-141.948 85.017-229.962 85.017-12.45 0-25.208-.61-37.907-1.785-92.157-8.682-181.494-48.601-251.662-112.438-71.99-65.517-117.147-150.03-127.164-238-11.226-98.763 23.42-192.783 95.045-257.937 81.99-74.637 198.185-101.768 316.613-75.704 5.574 1.227 9.55 6.282 9.55 11.997v199.52c-.199 2.625-1.481 6.599-8.183 2.896-.663-.365-1.194-.511-1.653-.531-21.987-10.587-45.159-17.57-68.559-19.916-.38-.04-.757-.124-1.138-.163-.537-.048-1.034-.033-1.556-.075-4.13-.354-8.183-.517-12.203-.58-.87-.011-1.771-.127-2.641-.127-.486 0-.951.05-1.437.057-1.464.011-2.886.115-4.33.163-2.76.102-5.497.211-8.182.448-.273.024-.547.07-.835.097-25.509 2.4-47.864 11.104-65.012 25.47-.954.802-1.974 1.53-2.9 2.36a1.34 1.34 0 0 1-.168.146c-23.96 21.8-34.881 53.872-30.726 90.316 4.62 40.737 26.94 81.156 62.841 113.823 35.908 32.67 80.335 52.977 125.113 57.186 35.118 3.36 66.547-3.919 89.899-20.461a97.255 97.255 0 0 0 9.365-7.501c2.925-2.661 5.569-5.5 8.086-8.416.3-.348.672-.673.975-1.024 8.253-9.864 14.222-21.067 17.996-33.148.639-2.034 1.051-4.148 1.564-6.227.381-1.563.81-3.106 1.112-4.693.555-2.784.923-5.632 1.253-8.49.086-.709.183-1.414.237-2.128.492-4.893.693-9.858.55-14.91h.013V521.623c-2.01-22.626-20.78-40.434-43.928-40.434h-57.23a8.071 8.071 0 0 1-8.077-8.073V340.564a7.132 7.132 0 0 1 7.136-7.133z'/></svg>");
+		}
+		.fa-file-image {
+			-webkit-mask: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1536 1792' xmlns='http://www.w3.org/2000/svg'><path d='M1468 380c37 37 68 111 68 164v1152c0 53-43 96-96 96H96c-53 0-96-43-96-96V96C0 43 43 0 96 0h896c53 0 127 31 164 68zm-444-244v376h376c-6-17-15-34-22-41l-313-313c-7-7-24-16-41-22zm384 1528V640H992c-53 0-96-43-96-96V128H128v1536h1280zm-128-448v320H256v-192l192-192 128 128 384-384zm-832-192c-106 0-192-86-192-192s86-192 192-192 192 86 192 192-86 192-192 192z'/></svg>");
+      -webkit-mask-repeat: no-repeat;
+		}
+		.fa-file-pdf {
+			-webkit-mask: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1536 1792' xmlns='http://www.w3.org/2000/svg'><path d='M1468 380c37 37 68 111 68 164v1152c0 53-43 96-96 96H96c-53 0-96-43-96-96V96C0 43 43 0 96 0h896c53 0 127 31 164 68zm-444-244v376h376c-6-17-15-34-22-41l-313-313c-7-7-24-16-41-22zm384 1528V640H992c-53 0-96-43-96-96V128H128v1536h1280zm-514-593c25 20 53 38 84 56 42-5 81-7 117-7 67 0 152 8 177 49 7 10 13 28 2 52-1 1-2 3-3 4v1c-3 18-18 38-71 38-64 0-161-29-245-73-139 15-285 46-392 83-103 176-182 262-242 262-10 0-19-2-28-7l-24-12c-3-1-4-3-6-5-5-5-9-16-6-36 10-46 64-123 188-188 8-5 18-2 23 6 1 1 2 3 2 4 31-51 67-116 107-197 45-90 80-178 104-262-32-109-42-221-24-287 7-25 22-40 42-40h22c15 0 27 5 35 15 12 14 15 36 9 68-1 3-2 6-4 8 1 3 1 5 1 8v30c-1 63-2 123-14 192 35 105 87 190 146 238zm-576 411c30-14 73-57 137-158-75 58-122 124-137 158zm398-920c-10 28-10 76-2 132 3-16 5-31 7-44 2-17 5-31 7-43 1-3 2-5 4-8-1-1-1-3-2-5-1-18-7-29-13-36 0 2-1 3-1 4zm-124 661c88-35 186-63 284-81-10-8-20-15-29-23-49-43-93-103-127-176-19 61-47 126-83 197-15 28-30 56-45 83zm646-16c-5-5-31-24-140-24 49 18 94 28 124 28 9 0 14 0 18-1 0-1-1-2-2-3z'/></svg>");
+      -webkit-mask-repeat: no-repeat;
+		}
+		.fa-file-word {
+			-webkit-mask: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1536 1792' xmlns='http://www.w3.org/2000/svg'><path d='M1468 380c37 37 68 111 68 164v1152c0 53-43 96-96 96H96c-53 0-96-43-96-96V96C0 43 43 0 96 0h896c53 0 127 31 164 68zm-444-244v376h376c-6-17-15-34-22-41l-313-313c-7-7-24-16-41-22zm384 1528V640H992c-53 0-96-43-96-96V128H128v1536h1280zM233 768v107h70l164 661h159l128-485c5-15 8-30 10-46 1-8 2-16 2-24h4l3 24c3 14 4 30 9 46l128 485h159l164-661h70V768h-300v107h90l-99 438c-4 16-6 33-7 46l-2 21h-4c0-6-2-14-3-21-3-13-5-30-9-46L825 768H711l-144 545c-4 16-5 33-8 46l-4 21h-4l-2-21c-1-13-3-30-7-46l-99-438h90V768H233z'/></svg>");
+      -webkit-mask-repeat: no-repeat;
+		}
+		.fa-file-powerpoint {
+			-webkit-mask: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1536 1792' xmlns='http://www.w3.org/2000/svg'><path d='M1468 380c37 37 68 111 68 164v1152c0 53-43 96-96 96H96c-53 0-96-43-96-96V96C0 43 43 0 96 0h896c53 0 127 31 164 68zm-444-244v376h376c-6-17-15-34-22-41l-313-313c-7-7-24-16-41-22zm384 1528V640H992c-53 0-96-43-96-96V128H128v1536h1280zm-992-234v106h327v-106h-93v-167h137c43 0 82-2 118-15 90-31 146-124 146-233s-54-193-137-228c-38-15-84-19-130-19H416v107h92v555h-92zm353-280H650V882h120c35 0 62 6 83 18 36 21 56 62 56 115 0 56-20 99-62 120-21 10-47 15-78 15z'/></svg>");
+      -webkit-mask-repeat: no-repeat;
+		}
+		.fa-file-excel {
+			-webkit-mask: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1536 1792' xmlns='http://www.w3.org/2000/svg'><path d='M1468 380c37 37 68 111 68 164v1152c0 53-43 96-96 96H96c-53 0-96-43-96-96V96C0 43 43 0 96 0h896c53 0 127 31 164 68zm-444-244v376h376c-6-17-15-34-22-41l-313-313c-7-7-24-16-41-22zm384 1528V640H992c-53 0-96-43-96-96V128H128v1536h1280zm-979-234v106h281v-106h-75l103-161c12-19 18-34 21-34h2c1 4 3 7 5 10 4 8 10 14 17 24l107 161h-76v106h291v-106h-68l-192-273 195-282h67V768H828v107h74l-103 159c-12 19-21 34-21 33h-2c-1-4-3-7-5-10-4-7-9-14-17-23L648 875h76V768H434v107h68l189 272-194 283h-68z'/></svg>");
+      -webkit-mask-repeat: no-repeat;
+		}
+		.fa-file-audio {
+			-webkit-mask: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1536 1792' xmlns='http://www.w3.org/2000/svg'><path d='M1468 380c37 37 68 111 68 164v1152c0 53-43 96-96 96H96c-53 0-96-43-96-96V96C0 43 43 0 96 0h896c53 0 127 31 164 68zm-444-244v376h376c-6-17-15-34-22-41l-313-313c-7-7-24-16-41-22zm384 1528V640H992c-53 0-96-43-96-96V128H128v1536h1280zM620 850c12 5 20 17 20 30v544c0 13-8 25-20 30-4 1-8 2-12 2-8 0-16-3-23-9l-166-167H288c-18 0-32-14-32-32v-192c0-18 14-32 32-32h131l166-167c10-9 23-12 35-7zm417 689c19 0 37-8 50-24 83-102 129-231 129-363s-46-261-129-363c-22-28-63-32-90-10-28 23-32 63-9 91 65 80 100 178 100 282s-35 202-100 282c-23 28-19 68 9 90 12 10 26 15 40 15zm-211-148c17 0 34-7 47-20 56-60 87-137 87-219s-31-159-87-219c-24-26-65-27-91-3-25 24-27 65-2 91 33 36 52 82 52 131s-19 95-52 131c-25 26-23 67 2 91 13 11 29 17 44 17z'/></svg>");
+      -webkit-mask-repeat: no-repeat;
+		}
+		.fa-file-video {
+			-webkit-mask: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1536 1792' xmlns='http://www.w3.org/2000/svg'><path d='M1468 380c37 37 68 111 68 164v1152c0 53-43 96-96 96H96c-53 0-96-43-96-96V96C0 43 43 0 96 0h896c53 0 127 31 164 68zm-444-244v376h376c-6-17-15-34-22-41l-313-313c-7-7-24-16-41-22zm384 1528V640H992c-53 0-96-43-96-96V128H128v1536h1280zM768 768c70 0 128 58 128 128v384c0 70-58 128-128 128H384c-70 0-128-58-128-128V896c0-70 58-128 128-128h384zm492 2c12 5 20 17 20 30v576c0 13-8 25-20 30-4 1-8 2-12 2-8 0-17-3-23-9l-265-266v-90l265-266c6-6 15-9 23-9 4 0 8 1 12 2z'/></svg>");
+      -webkit-mask-repeat: no-repeat;
+		}
+		.fa-file-archive {
+			-webkit-mask: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1536 1792' xmlns='http://www.w3.org/2000/svg'><path d='M640 384V256H512v128h128zm128 128V384H640v128h128zM640 640V512H512v128h128zm128 128V640H640v128h128zm700-388c37 37 68 111 68 164v1152c0 53-43 96-96 96H96c-53 0-96-43-96-96V96C0 43 43 0 96 0h896c53 0 127 31 164 68zm-444-244v376h376c-6-17-15-34-22-41l-313-313c-7-7-24-16-41-22zm384 1528V640H992c-53 0-96-43-96-96V128H768v128H640V128H128v1536h1280zM781 943c85 287 107 349 107 349 5 17 8 34 8 52 0 111-108 192-256 192s-256-81-256-192c0-18 3-35 8-52 0 0 21-62 120-396V768h128v128h79c29 0 54 19 62 47zm-141 465c71 0 128-29 128-64s-57-64-128-64-128 29-128 64 57 64 128 64z'/></svg>");
+      -webkit-mask-repeat: no-repeat;
+		}
+		.fa-file-code {
+			-webkit-mask: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1536 1792' xmlns='http://www.w3.org/2000/svg'><path d='M1468 380c37 37 68 111 68 164v1152c0 53-43 96-96 96H96c-53 0-96-43-96-96V96C0 43 43 0 96 0h896c53 0 127 31 164 68zm-444-244v376h376c-6-17-15-34-22-41l-313-313c-7-7-24-16-41-22zm384 1528V640H992c-53 0-96-43-96-96V128H128v1536h1280zM480 768c11-14 31-17 45-6l51 38c14 11 17 31 6 45l-182 243 182 243c11 14 8 34-6 45l-51 38c-14 11-34 8-45-6l-226-301c-8-11-8-27 0-38zm802 301c8 11 8 27 0 38l-226 301c-11 14-31 17-45 6l-51-38c-14-11-17-31-6-45l182-243-182-243c-11-14-8-34 6-45l51-38c14-11 34-8 45 6zm-620 461c-18-3-29-20-26-37l138-831c3-18 20-29 37-26l63 10c18 3 29 20 26 37l-138 831c-3 18-20 29-37 26z'/></svg>");
+      -webkit-mask-repeat: no-repeat;
+		}
+		.fa-file-alt, .fa-file-csv {
+      /* fork-awesome doesn't have csv so we use the text icon */
+			-webkit-mask: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1536 1792' xmlns='http://www.w3.org/2000/svg'><path d='M1468 380c37 37 68 111 68 164v1152c0 53-43 96-96 96H96c-53 0-96-43-96-96V96C0 43 43 0 96 0h896c53 0 127 31 164 68zm-444-244v376h376c-6-17-15-34-22-41l-313-313c-7-7-24-16-41-22zm384 1528V640H992c-53 0-96-43-96-96V128H128v1536h1280zM384 800c0-18 14-32 32-32h704c18 0 32 14 32 32v64c0 18-14 32-32 32H416c-18 0-32-14-32-32v-64zm736 224c18 0 32 14 32 32v64c0 18-14 32-32 32H416c-18 0-32-14-32-32v-64c0-18 14-32 32-32h704zm0 256c18 0 32 14 32 32v64c0 18-14 32-32 32H416c-18 0-32-14-32-32v-64c0-18 14-32 32-32h704z'/></svg>");
+      -webkit-mask-repeat: no-repeat;
+		}
+		.fa-file {
+			-webkit-mask: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1536 1792' xmlns='http://www.w3.org/2000/svg'><path d='M1468 380c37 37 68 111 68 164v1152c0 53-43 96-96 96H96c-53 0-96-43-96-96V96C0 43 43 0 96 0h896c53 0 127 31 164 68zm-444-244v376h376c-6-17-15-34-22-41l-313-313c-7-7-24-16-41-22zm384 1528V640H992c-53 0-96-43-96-96V128H128v1536h1280z'/></svg>");
+      -webkit-mask-repeat: no-repeat;
+		}
+		blockquote {
+			border-left: 4px solid rgb(220, 220, 220);
+			padding-left: 1.2em;
+			margin-left: 0;
+			opacity: .7;
+		}
+
+		.jop-tinymce table,
+		table {
+			text-align: left;
+			border-collapse: collapse;
+			border: 1px solid rgb(220, 220, 220);
+			background-color: #ffffff;
+		}
+
+		.jop-tinymce table td, .jop-tinymce table th,
+		table td, th {
+			text-align: left;
+			padding: .5em 1em .5em 1em;
+			font-size: 15;
+			color: #32373F;
+			font-family: 'Avenir', 'Arial', sans-serif;
+		}
+
+		.jop-tinymce table td,
+		table td {
+			border: 1px solid rgb(220, 220, 220);
+		}
+
+		.jop-tinymce table th,
+		table th {
+			border: 1px solid rgb(220, 220, 220);
+			border-bottom: 2px solid rgb(220, 220, 220);
+			background-color: rgb(247, 247, 247);
+		}
+
+		.jop-tinymce table tr:nth-child(even),
+		table tr:nth-child(even) {
+			background-color: rgb(247, 247, 247);
+		}
+
+		.jop-tinymce table tr:hover,
+		table tr:hover {
+			background-color: #e5e5e5;
+		}
+
+		hr {
+			border: none;
+			border-bottom: 2px solid #dddddd;
+		}
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+		
+		.inline-code,
+		.mce-content-body code {
+			border: 1px solid rgb(220, 220, 220);
+			background-color: rgb(243, 243, 243);
+			padding-right: .2em;
+			padding-left: .2em;
+			border-radius: .25em;
+			color: rgb(0,0,0);
+			font-size: .9em;
+		}
+
+		.highlighted-keyword {
+			background-color: #F3B717;
+			color: black;
+		}
+
+		.not-loaded-resource img {
+			width: 1.15em;
+			height: 1.15em;
+			background: white;
+			padding: 2px !important;
+			border-radius: 2px;
+			box-shadow: 0 1px 3px #000000aa;
+		}
+
+		a.not-loaded-resource img {
+			margin-right: .2em;
+		}
+
+		a.not-loaded-resource {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+
+		.md-checkbox input[type=checkbox]:checked {
+			opacity: 0.7;
+		}
+
+		.jop-tinymce ul.joplin-checklist .checked,
+		.md-checkbox .checkbox-label-checked {
+			opacity: 0.5;
+		}
+
+		.exported-note {
+			padding: 1em;
+		}
+
+		.joplin-editable .joplin-source {
+			display: none;
+		}
+
+		mark {
+			background: #F7D26E;
+			color: black;
+		}
+
+		/* =============================================== */
+		/* For TinyMCE */
+		/* =============================================== */
+
+		.mce-content-body {
+			/* Note: we give a bit more padding at the bottom, to allow scrolling past the end of the document */
+			padding: 5px 10px 10em 0;
+		}
+
+		/*
+		.mce-content-body code {
+			background-color: transparent;
+		}
+		*/
+
+		.mce-content-body [data-mce-selected=inline-boundary] {
+			background-color: transparent;
+		}
+
+		.mce-content-body .joplin-editable {
+			cursor: pointer !important;
+		}
+
+		.mce-content-body.mce-content-readonly {
+			opacity: 0.5;
+		}
+
+		/* We need that to make sure click events have the A has a target */
+		.katex a span {
+			pointer-events: none;
+		}
+
+		.media-player {
+			width: 100%;
+			margin-top: 10px;
+		}
+
+		.media-player.media-pdf {
+			min-height: 100vh;
+		}
+
+		/* Clear the CODE style if the element is within a joplin-editable block */
+		.mce-content-body .joplin-editable code {
+			border: none;
+			background: none;
+			padding: 0;
+			color: inherit;
+			font-size: inherit;
+		}
+
+		/* =============================================== */
+		/* For TinyMCE */
+		/* =============================================== */
+
+		@media print {
+			body {
+				height: auto !important;
+			}
+
+			pre {
+				white-space: pre-wrap;
+			}
+
+			.code, .inline-code {
+				border: 1px solid #CBCBCB;
+			}
+
+			#joplin-container-content {
+				/* The height of the content is set dynamically by JavaScript (in updateBodyHeight) to go
+				   around various issues related to scrolling. However when printing we don't want this
+				   fixed size as that would crop the content. So we set it to auto here. "important" is
+				   needed to override the style set by JavaScript at the element-level. */
+				height: auto !important;
+			}
+		}
+	
+
+				/*
+					FOR THE MARKDOWN EDITOR
+				*/
+
+				/* Remove the indentation from the checkboxes at the root of the document
+				   (otherwise they are too far right), but keep it for their children to allow
+				   nested lists. Make sure this value matches the UL margin. */
+
+				li.md-checkbox {
+					list-style-type: none;
+				}
+
+				li.md-checkbox input[type=checkbox] {
+					margin-left: -1.71em;
+					margin-right: 0.7em;
+				}
+				
+				ul.joplin-checklist {
+					list-style:none;
+				}
+
+				/*
+					FOR THE RICH TEXT EDITOR
+				*/
+
+				ul.joplin-checklist li::before {
+					content:"\f14a";
+					font-family:"Font Awesome 5 Free";
+					background-size: 16px 16px;
+					pointer-events: all;
+					cursor: pointer;
+					width: 1em;
+					height: 1em;
+					margin-left: -1.3em;
+					position: absolute;
+					color: #32373F;
+				}
+
+				.joplin-checklist li:not(.checked)::before {
+					content:"\f0c8";
+				}
+.mermaid { background-color: white; width: 640px; }</style><div id="rendered-md"><h1 id="php-cheat-sheet">PHP Cheat Sheet</h1>
+<h4 id="author-coty-mckinney">Author: Coty McKinney</h4>
+<h4 id="referenced-httpswwww3schoolscomphp">Referenced: <a data-from-md title='https://www.w3schools.com/php' href='https://www.w3schools.com/php'>https://www.w3schools.com/php</a></h4>
+<hr>
+<ul>
+<li>
+<p>PHP is a loosely typed language meaning it automatically associates a data type to the variable, depending on its value. Since the data types are not set in a strict sense, you can do things like adding a string to an integer without causing an error.</p>
+<ul>
+<li>
+<p>In PHP 7, type declarations were added. This gives us an option to specify the expected data type when declaring a function, and by adding the <code class="inline-code">strict</code> declaration, it will throw a &quot;Fatal Error&quot; if the data type mismatches.</p>
+<ul>
+<li>To specify strict we need to set <code class="inline-code">declare(strict_types=1)</code>;. This <strong>must be on the very first line</strong> of the PHP file.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Variables always start with a dollar sign.</p>
+</li>
+<li>
+<p>No dot notation</p>
+</li>
+<li>
+<p>Everything is function based</p>
+</li>
+<li>
+<p>PHP excutes prior to JS/HTML/CSS</p>
+</li>
+<li>
+<p>PHP console logging function:</p>
+</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">    function console_log( $data ){
+      echo '&lt;script&gt;';
+      echo 'console.log('. json_encode( $data ) .')';
+      echo '&lt;/script&gt;';
+    }
+
+    // Usage:
+    $myvar = array(1,2,3);
+    console_log( $myvar ); // [1,2,3]
+    </pre><pre class="hljs"><code>    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">console_log</span>(<span class="hljs-params"> $data </span>)</span>{
+      <span class="hljs-keyword">echo</span> <span class="hljs-string">&#x27;&lt;script&gt;&#x27;</span>;
+      <span class="hljs-keyword">echo</span> <span class="hljs-string">&#x27;console.log(&#x27;</span>. json_encode( $data ) .<span class="hljs-string">&#x27;)&#x27;</span>;
+      <span class="hljs-keyword">echo</span> <span class="hljs-string">&#x27;&lt;/script&gt;&#x27;</span>;
+    }
+
+    <span class="hljs-comment">// Usage:</span>
+    $myvar = <span class="hljs-keyword">array</span>(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>);
+    console_log( $myvar ); <span class="hljs-comment">// [1,2,3]</span>
+    </code></pre></div>
+<h4 id="should-utilize-print_r-or-echo-over-this">Should utilize <code class="inline-code">print_r()</code>, or <code class="inline-code">echo</code> over this</h4>
+<ul>
+<li>
+<p><code class="inline-code">is_numeric()</code> function can be used to find whether a variable is numeric. The function returns true if the variable is a number or a numeric string, false otherwise.</p>
+</li>
+<li>
+<p><code class="inline-code">var_dump()</code> function returns the data type and value of a variable.</p>
+</li>
+<li>
+<p><code class="inline-code">__construct()</code> function, PHP will automatically call this function when you create an object from a class.</p>
+</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php
+    class Car {
+      public $color;
+      public $model;
+      public function __construct($color, $model) {
+        $this-&gt;color = $color;
+        $this-&gt;model = $model;
+      }
+      public function message() {
+        return &quot;My car is a &quot; . $this-&gt;color . &quot; &quot; . $this-&gt;model . &quot;!&quot;;
+      }
+    }
+
+    $myCar = new Car(&quot;black&quot;, &quot;Volvo&quot;);
+    echo $myCar -&gt; message();
+    echo &quot;&lt;br&gt;&quot;;
+    $myCar = new Car(&quot;red&quot;, &quot;Toyota&quot;);
+    echo $myCar -&gt; message();
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Car</span> </span>{
+      <span class="hljs-keyword">public</span> $color;
+      <span class="hljs-keyword">public</span> $model;
+      <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span>(<span class="hljs-params">$color, $model</span>) </span>{
+        <span class="hljs-keyword">$this</span>-&gt;color = $color;
+        <span class="hljs-keyword">$this</span>-&gt;model = $model;
+      }
+      <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">message</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;My car is a &quot;</span> . <span class="hljs-keyword">$this</span>-&gt;color . <span class="hljs-string">&quot; &quot;</span> . <span class="hljs-keyword">$this</span>-&gt;model . <span class="hljs-string">&quot;!&quot;</span>;
+      }
+    }
+
+    $myCar = <span class="hljs-keyword">new</span> Car(<span class="hljs-string">&quot;black&quot;</span>, <span class="hljs-string">&quot;Volvo&quot;</span>);
+    <span class="hljs-keyword">echo</span> $myCar -&gt; message();
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;br&gt;&quot;</span>;
+    $myCar = <span class="hljs-keyword">new</span> Car(<span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;Toyota&quot;</span>);
+    <span class="hljs-keyword">echo</span> $myCar -&gt; message();
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+<h2 id="strings">Strings</h2>
+<ul>
+<li>
+<p><code class="inline-code">strlen()</code> function returns the length of a string</p>
+</li>
+<li>
+<p><code class="inline-code">str_word_count()</code> function counts the number of words in a string</p>
+</li>
+<li>
+<p><code class="inline-code">strrev()</code> function reverses a string</p>
+</li>
+<li>
+<p><code class="inline-code">strpos()</code> function searches for a specific text within a string. If a match is found, the function returns the character position of the first match. If no match is found, it will return FALSE.</p>
+</li>
+<li>
+<p><code class="inline-code">str_replace()</code> function replaces some characters with some other characters in a string.</p>
+</li>
+</ul>
+<h2 id="integers">Integers</h2>
+<ul>
+<li>The <code class="inline-code">(int)</code>, <code class="inline-code">(integer)</code>, or <code class="inline-code">intval()</code> function are often used to convert a value to an integer.</li>
+</ul>
+<h3 id="here-are-some-rules-for-integers">Here are some rules for integers:</h3>
+<ul>
+<li>
+<p>An integer must have at least one digit</p>
+</li>
+<li>
+<p>An integer must NOT have a decimal point</p>
+</li>
+<li>
+<p>An integer can be either positive or negative</p>
+</li>
+<li>
+<p>Integers can be specified in three formats: decimal (10-based), hexadecimal (16-based - prefixed with 0x) or octal (8-based - prefixed with 0)</p>
+</li>
+</ul>
+<h3 id="php-has-the-following-predefined-constants-for-integers">PHP has the following predefined constants for integers:</h3>
+<ul>
+<li>
+<p>PHP_INT_MAX - The largest integer supported</p>
+</li>
+<li>
+<p>PHP_INT_MIN - The smallest integer supported</p>
+</li>
+<li>
+<p>PHP_INT_SIZE -  The size of an integer in bytes</p>
+</li>
+</ul>
+<h3 id="php-has-the-following-functions-to-check-if-the-type-of-a-variable-is-integer">PHP has the following functions to check if the type of a variable is integer:</h3>
+<ul>
+<li>
+<p>is_int()</p>
+</li>
+<li>
+<p>is_integer() - alias of is_int()</p>
+</li>
+<li>
+<p>is_long() - alias of is_int()</p>
+</li>
+</ul>
+<h2 id="floats">Floats</h2>
+<h3 id="php-has-the-following-predefined-constants-for-floats-from-php-72">PHP has the following predefined constants for floats (from PHP 7.2):</h3>
+<ul>
+<li>
+<p>PHP_FLOAT_MAX - The largest representable floating point number</p>
+</li>
+<li>
+<p>PHP_FLOAT_MIN - The smallest representable positive floating point number</p>
+</li>
+<li>
+<p>PHP_FLOAT_MAX - The smallest representable negative floating point number</p>
+</li>
+<li>
+<p>PHP_FLOAT_DIG - The number of decimal digits that can be rounded into a float and back without precision loss</p>
+</li>
+<li>
+<p>PHP_FLOAT_EPSILON - The smallest representable positive number x, so that x + 1.0 != 1.0</p>
+</li>
+</ul>
+<h3 id="php-has-the-following-functions-to-check-if-the-type-of-a-variable-is-float">PHP has the following functions to check if the type of a variable is float:</h3>
+<ul>
+<li>
+<p>is_float()</p>
+</li>
+<li>
+<p>is_double() - alias of is_float()</p>
+</li>
+</ul>
+<h2 id="infinites">Infinites</h2>
+<ul>
+<li>A numeric value that is larger than <code class="inline-code">PHP_FLOAT_MAX</code> is considered infinite.</li>
+</ul>
+<h3 id="php-has-the-following-functions-to-check-if-a-numeric-value-is-finite-or-infinite">PHP has the following functions to check if a numeric value is finite or infinite:</h3>
+<ul>
+<li>
+<p>is_finite()</p>
+</li>
+<li>
+<p>is_infinite()</p>
+</li>
+</ul>
+<h2 id="nans">NaNs</h2>
+<ul>
+<li>
+<p>NaN stands for Not a Number.</p>
+</li>
+<li>
+<p>NaN is used for impossible mathematical operations.</p>
+</li>
+</ul>
+<h3 id="php-has-the-following-functions-to-check-if-a-value-is-not-a-number">PHP has the following functions to check if a value is not a number:</h3>
+<ul>
+<li>is_nan()</li>
+</ul>
+<h2 id="math">Math</h2>
+<h3 id="math-functions">Math Functions:</h3>
+<ul>
+<li>
+<p><code class="inline-code">pi()</code> function returns the value of PI.</p>
+</li>
+<li>
+<p><code class="inline-code">min()</code> and <code class="inline-code">max()</code> functions can be used to find the lowest or highest value in a list of arguments.</p>
+</li>
+<li>
+<p><code class="inline-code">abs()</code> function returns the absolute (positive) value of a number</p>
+</li>
+<li>
+<p><code class="inline-code">sqrt()</code> function returns the square root of a number.</p>
+</li>
+<li>
+<p><code class="inline-code">round()</code> function rounds a floating-point number to its nearest integer.</p>
+</li>
+<li>
+<p><code class="inline-code">rand()</code> function generates a random number.</p>
+<ul>
+<li>To get more control over the random number, you can add the optional min and max parameters to specify the lowest integer and the highest integer to be returned.</li>
+</ul>
+</li>
+</ul>
+<h2 id="constants">Constants</h2>
+<ul>
+<li>
+<p>Constants are <strong>like</strong> variables <strong>except</strong> that once they are defined they <strong>cannot</strong> be changed or undefined.</p>
+</li>
+<li>
+<p>A valid constant name starts with a letter or underscore (no $ sign before the constant name).</p>
+</li>
+</ul>
+<h4 id="unlike-variables-constants-are-automatically-global-across-the-entire-script">Unlike variables, constants are automatically global across the entire script.</h4>
+<ul>
+<li>
+<p>To create a constant, use the <code class="inline-code">define()</code> function.</p>
+<ul>
+<li>
+<p>Syntax:</p>
+<ul>
+<li>
+<p><code class="inline-code">define(name, value, case-insensitive)</code></p>
+</li>
+<li>
+<p><code class="inline-code">name</code>: Specifies the name of the constant</p>
+</li>
+<li>
+<p><code class="inline-code">value</code>: Specifies the value of the constant</p>
+</li>
+<li>
+<p><code class="inline-code">case-insensitive</code>: Specifies whether the constant name should be case-insensitive. Default is false</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>In PHP7, you can create an Array constant using the <code class="inline-code">define()</code> function.</p>
+</li>
+</ul>
+<h2 id="operators">Operators</h2>
+<h3 id="arithmetic">Arithmetic</h3>
+<ul>
+<li>used with numeric values to perform common arithmetical operations, such as addition, subtraction, multiplication etc.</li>
+</ul>
+<h4 id="operator-name-example-result"><strong>Operator</strong> --&gt; <strong>Name</strong> --&gt; <strong>Example</strong> --&gt; <strong>Result</strong></h4>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">+ --&gt; Addition --&gt; $x + $y --&gt; Sum of $x and $y	
+
+- --&gt; Subtraction --&gt; $x - $y --&gt; Difference of $x and $y	
+
+* --&gt; Multiplication --&gt; $x * $y --&gt; Product of $x and $y	
+
+/ --&gt; Division --&gt; $x / $y --&gt; Quotient of $x and $y	
+
+% --&gt; Modulus --&gt; $x % $y --&gt; Remainder of $x divided by $y	
+
+** --&gt; Exponentiation --&gt;$x ** $y --&gt; Result of raising $x to the $y'th power</pre><pre class="hljs"><code>+ --&gt; Addition --&gt; <span class="hljs-variable">$x</span> + <span class="hljs-variable">$y</span> --&gt; Sum of <span class="hljs-variable">$x</span> <span class="hljs-keyword">and</span> <span class="hljs-variable">$y</span>	
+
+- --&gt; Subtraction --&gt; <span class="hljs-variable">$x</span> - <span class="hljs-variable">$y</span> --&gt; Difference of <span class="hljs-variable">$x</span> <span class="hljs-keyword">and</span> <span class="hljs-variable">$y</span>	
+
+* --&gt; Multiplication --&gt; <span class="hljs-variable">$x</span> * <span class="hljs-variable">$y</span> --&gt; Product of <span class="hljs-variable">$x</span> <span class="hljs-keyword">and</span> <span class="hljs-variable">$y</span>	
+
+/ --&gt; Division --&gt; <span class="hljs-variable">$x</span> / <span class="hljs-variable">$y</span> --&gt; Quotient of <span class="hljs-variable">$x</span> <span class="hljs-keyword">and</span> <span class="hljs-variable">$y</span>	
+
+% --&gt; Modulus --&gt; <span class="hljs-variable">$x</span> % <span class="hljs-variable">$y</span> --&gt; Remainder of <span class="hljs-variable">$x</span> divided by <span class="hljs-variable">$y</span>	
+
+** --&gt; Exponentiation --&gt;<span class="hljs-variable">$x</span> ** <span class="hljs-variable">$y</span> --&gt; Result of raising <span class="hljs-variable">$x</span> to the <span class="hljs-variable">$y</span><span class="hljs-string">&#x27;th power</span></code></pre></div>
+<h3 id="assignment">Assignment</h3>
+<h4 id="assignment-same-as-description"><strong>Assignment</strong> --&gt; <strong>Same as...</strong> --&gt; <strong>Description</strong></h4>
+<ul>
+<li>The PHP assignment operators are used with numeric values to write a value to a variable.</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">x = y --&gt; x = y --&gt; The left operand gets set to the value of the expression on the right	
+
+x += y --&gt; x = x + y --&gt; Addition	
+
+x -= y --&gt; x = x - y --&gt; Subtraction	
+
+x *= y --&gt; x = x * y --&gt; Multiplication	
+
+x /= y --&gt; x = x / y --&gt; Division	
+
+x %= y --&gt; x = x % y --&gt; Modulus</pre><pre class="hljs"><code><span class="hljs-symbol">x</span> = <span class="hljs-symbol">y</span> --&gt; <span class="hljs-symbol">x</span> = <span class="hljs-symbol">y</span> --&gt; The left operand gets set to the value of the expression on the right	
+
+<span class="hljs-symbol">x</span> += <span class="hljs-symbol">y</span> --&gt; <span class="hljs-symbol">x</span> = <span class="hljs-symbol">x</span> + <span class="hljs-symbol">y</span> --&gt; Addition	
+
+<span class="hljs-symbol">x</span> -= <span class="hljs-symbol">y</span> --&gt; <span class="hljs-symbol">x</span> = <span class="hljs-symbol">x</span> - <span class="hljs-symbol">y</span> --&gt; Subtraction	
+
+<span class="hljs-symbol">x</span> *= <span class="hljs-symbol">y</span> --&gt; <span class="hljs-symbol">x</span> = <span class="hljs-symbol">x</span> * <span class="hljs-symbol">y</span> --&gt; Multiplication	
+
+<span class="hljs-symbol">x</span> /= <span class="hljs-symbol">y</span> --&gt; <span class="hljs-symbol">x</span> = <span class="hljs-symbol">x</span> / <span class="hljs-symbol">y</span> --&gt; Division	
+
+<span class="hljs-symbol">x</span> %= <span class="hljs-symbol">y</span> --&gt; <span class="hljs-symbol">x</span> = <span class="hljs-symbol">x</span> % <span class="hljs-symbol">y</span> --&gt; Modulus</code></pre></div>
+<h3 id="comparison">Comparison</h3>
+<ul>
+<li>The PHP comparison operators are used to compare two values (number or string).</li>
+</ul>
+<h4 id="operator-name-example-result-2"><strong>Operator</strong> --&gt; <strong>Name</strong> --&gt; <strong>Example</strong> --&gt; <strong>Result</strong></h4>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">== --&gt; Equal --&gt; $x == $y --&gt; Returns true if $x is equal to $y	
+
+=== --&gt; Identical --&gt; $x === $y --&gt; Returns true if $x is equal to $y, and they are of the same type	
+
+!= --&gt; Not equal --&gt; $x != $y --&gt; Returns true if $x is not equal to $y	
+
+&lt;&gt; --&gt; Not equal --&gt; $x &lt;&gt; $y --&gt; Returns true if $x is not equal to $y	
+
+!== --&gt; Not identical --&gt; $x !== $y --&gt; Returns true if $x is not equal to $y, or they are not of the same type	
+
+&gt; --&gt; Greater than --&gt; $x &gt; $y --&gt; Returns true if $x is greater than $y	
+
+&lt; --&gt; Less than --&gt; $x &lt; $y --&gt; Returns true if $x is less than $y	
+
+&gt;= --&gt; Greater than or equal to --&gt; $x &gt;= $y --&gt; Returns true if $x is greater than or equal to $y	
+
+&lt;= --&gt; Less than or equal to --&gt; $x &lt;= $y --&gt; Returns true if $x is less than or equal to $y	
+
+&lt;=&gt; --&gt; Spaceship --&gt; $x &lt;=&gt; $y --&gt;Returns an integer less than, equal to, or greater than zero, depending on if $x is less than, equal to, or greater than $y. Introduced in PHP 7.</pre><pre class="hljs"><code>== --&gt; Equal --&gt; <span class="hljs-variable">$x</span> == <span class="hljs-variable">$y</span> --&gt; Returns <span class="hljs-literal">true</span> <span class="hljs-keyword">if</span> <span class="hljs-variable">$x</span> is equal <span class="hljs-keyword">to</span> <span class="hljs-variable">$y</span>	
+
+=== --&gt; Identical --&gt; <span class="hljs-variable">$x</span> === <span class="hljs-variable">$y</span> --&gt; Returns <span class="hljs-literal">true</span> <span class="hljs-keyword">if</span> <span class="hljs-variable">$x</span> is equal <span class="hljs-keyword">to</span> <span class="hljs-variable">$y</span>, <span class="hljs-keyword">and</span> they are of the same<span class="hljs-built_in"> type	</span>
+
+!= --&gt; <span class="hljs-keyword">Not</span> equal --&gt; <span class="hljs-variable">$x</span> != <span class="hljs-variable">$y</span> --&gt; Returns <span class="hljs-literal">true</span> <span class="hljs-keyword">if</span> <span class="hljs-variable">$x</span> is <span class="hljs-keyword">not</span> equal <span class="hljs-keyword">to</span> <span class="hljs-variable">$y</span>	
+
+&lt;&gt; --&gt; <span class="hljs-keyword">Not</span> equal --&gt; <span class="hljs-variable">$x</span> &lt;&gt; <span class="hljs-variable">$y</span> --&gt; Returns <span class="hljs-literal">true</span> <span class="hljs-keyword">if</span> <span class="hljs-variable">$x</span> is <span class="hljs-keyword">not</span> equal <span class="hljs-keyword">to</span> <span class="hljs-variable">$y</span>	
+
+!== --&gt; <span class="hljs-keyword">Not</span> identical --&gt; <span class="hljs-variable">$x</span> !== <span class="hljs-variable">$y</span> --&gt; Returns <span class="hljs-literal">true</span> <span class="hljs-keyword">if</span> <span class="hljs-variable">$x</span> is <span class="hljs-keyword">not</span> equal <span class="hljs-keyword">to</span> <span class="hljs-variable">$y</span>, <span class="hljs-keyword">or</span> they are <span class="hljs-keyword">not</span> of the same<span class="hljs-built_in"> type	</span>
+
+&gt; --&gt; Greater than --&gt; <span class="hljs-variable">$x</span> &gt; <span class="hljs-variable">$y</span> --&gt; Returns <span class="hljs-literal">true</span> <span class="hljs-keyword">if</span> <span class="hljs-variable">$x</span> is greater than <span class="hljs-variable">$y</span>	
+
+&lt; --&gt; Less than --&gt; <span class="hljs-variable">$x</span> &lt; <span class="hljs-variable">$y</span> --&gt; Returns <span class="hljs-literal">true</span> <span class="hljs-keyword">if</span> <span class="hljs-variable">$x</span> is less than <span class="hljs-variable">$y</span>	
+
+&gt;= --&gt; Greater than <span class="hljs-keyword">or</span> equal <span class="hljs-keyword">to</span> --&gt; <span class="hljs-variable">$x</span> &gt;= <span class="hljs-variable">$y</span> --&gt; Returns <span class="hljs-literal">true</span> <span class="hljs-keyword">if</span> <span class="hljs-variable">$x</span> is greater than <span class="hljs-keyword">or</span> equal <span class="hljs-keyword">to</span> <span class="hljs-variable">$y</span>	
+
+&lt;= --&gt; Less than <span class="hljs-keyword">or</span> equal <span class="hljs-keyword">to</span> --&gt; <span class="hljs-variable">$x</span> &lt;= <span class="hljs-variable">$y</span> --&gt; Returns <span class="hljs-literal">true</span> <span class="hljs-keyword">if</span> <span class="hljs-variable">$x</span> is less than <span class="hljs-keyword">or</span> equal <span class="hljs-keyword">to</span> <span class="hljs-variable">$y</span>	
+
+&lt;=&gt; --&gt; Spaceship --&gt; <span class="hljs-variable">$x</span> &lt;=&gt; <span class="hljs-variable">$y</span> --&gt;Returns an integer less than, equal <span class="hljs-keyword">to</span>, <span class="hljs-keyword">or</span> greater than zero, depending on <span class="hljs-keyword">if</span> <span class="hljs-variable">$x</span> is less than, equal <span class="hljs-keyword">to</span>, <span class="hljs-keyword">or</span> greater than <span class="hljs-variable">$y</span>. Introduced <span class="hljs-keyword">in</span> PHP 7.</code></pre></div>
+<h3 id="incrementdecrement">Increment/Decrement</h3>
+<h4 id="operator-name-description"><strong>Operator</strong> --&gt; <strong>Name</strong> --&gt; <strong>Description</strong></h4>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">++$x --&gt; Pre-increment --&gt; Increments $x by one, then returns $x	
+
+$x++ --&gt; Post-increment --&gt; Returns $x, then increments $x by one	
+
+--$x --&gt; Pre-decrement --&gt; Decrements $x by one, then returns $x	
+
+$x-- --&gt; Post-decrement --&gt; Returns $x, then decrements $x by one</pre><pre class="hljs"><code>++<span class="hljs-variable">$x</span> --&gt; Pre-increment --&gt; Increments <span class="hljs-variable">$x</span> <span class="hljs-keyword">by</span> <span class="hljs-keyword">one</span>, then returns <span class="hljs-variable">$x</span>	
+
+<span class="hljs-variable">$x</span>++ --&gt; <span class="hljs-keyword">Post</span>-increment --&gt; Returns <span class="hljs-variable">$x</span>, then increments <span class="hljs-variable">$x</span> <span class="hljs-keyword">by</span> <span class="hljs-keyword">one</span>	
+
+--<span class="hljs-variable">$x</span> --&gt; Pre-decrement --&gt; Decrements <span class="hljs-variable">$x</span> <span class="hljs-keyword">by</span> <span class="hljs-keyword">one</span>, then returns <span class="hljs-variable">$x</span>	
+
+<span class="hljs-variable">$x</span>-- --&gt; <span class="hljs-keyword">Post</span>-decrement --&gt; Returns <span class="hljs-variable">$x</span>, then decrements <span class="hljs-variable">$x</span> <span class="hljs-keyword">by</span> <span class="hljs-keyword">one</span></code></pre></div>
+<h3 id="logical">Logical</h3>
+<ul>
+<li>logical operators are used to combine conditional statements.</li>
+</ul>
+<h4 id="operator-name-example-result-3"><strong>Operator</strong> --&gt; <strong>Name</strong> --&gt; <strong>Example</strong> --&gt; <strong>Result</strong></h4>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">and --&gt; And --&gt; $x and $y --&gt; True if both $x and $y are true	
+
+or --&gt; Or --&gt; $x or $y --&gt; True if either $x or $y is true	
+
+xor --&gt; Xor --&gt; $x xor $y --&gt; True if either $x or $y is true, but not both	
+
+&amp;&amp; --&gt; And --&gt; $x &amp;&amp; $y --&gt; True if both $x and $y are true	
+
+|| --&gt; Or --&gt; $x || $y --&gt; True if either $x or $y is true	
+
+! --&gt; Not --&gt; !$x --&gt; True if $x is not true</pre><pre class="hljs"><code><span class="hljs-keyword">and</span> --&gt; And --&gt; <span class="hljs-variable">$x</span> <span class="hljs-keyword">and</span> <span class="hljs-variable">$y</span> --&gt; True if both <span class="hljs-variable">$x</span> <span class="hljs-keyword">and</span> <span class="hljs-variable">$y</span> are <span class="hljs-keyword">true</span>	
+
+<span class="hljs-keyword">or</span> --&gt; Or --&gt; <span class="hljs-variable">$x</span> <span class="hljs-keyword">or</span> <span class="hljs-variable">$y</span> --&gt; True if either <span class="hljs-variable">$x</span> <span class="hljs-keyword">or</span> <span class="hljs-variable">$y</span> is <span class="hljs-keyword">true</span>	
+
+xor --&gt; Xor --&gt; <span class="hljs-variable">$x</span> xor <span class="hljs-variable">$y</span> --&gt; True if either <span class="hljs-variable">$x</span> <span class="hljs-keyword">or</span> <span class="hljs-variable">$y</span> is <span class="hljs-keyword">true</span>, but <span class="hljs-keyword">not</span> both	
+
+&amp;&amp; --&gt; And --&gt; <span class="hljs-variable">$x</span> &amp;&amp; <span class="hljs-variable">$y</span> --&gt; True if both <span class="hljs-variable">$x</span> <span class="hljs-keyword">and</span> <span class="hljs-variable">$y</span> are <span class="hljs-keyword">true</span>	
+
+|| --&gt; Or --&gt; <span class="hljs-variable">$x</span> || <span class="hljs-variable">$y</span> --&gt; True if either <span class="hljs-variable">$x</span> <span class="hljs-keyword">or</span> <span class="hljs-variable">$y</span> is <span class="hljs-keyword">true</span>	
+
+! --&gt; Not --&gt; !<span class="hljs-variable">$x</span> --&gt; True if <span class="hljs-variable">$x</span> is <span class="hljs-keyword">not</span> <span class="hljs-keyword">true</span></code></pre></div>
+<h3 id="string">String</h3>
+<h4 id="operator-name-example-result-4"><strong>Operator</strong> --&gt; <strong>Name</strong> --&gt; <strong>Example</strong> --&gt; <strong>Result</strong></h4>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">. --&gt; Concatenation --&gt; $txt1 . $txt2 --&gt; Concatenation of $txt1 and $txt2	
+
+.= --&gt; Concatenation assignment --&gt; $txt1 .= $txt2 --&gt; Appends $txt2 to $txt1</pre><pre class="hljs"><code>. --&gt; Concatenation --&gt; <span class="hljs-variable">$txt1</span> . <span class="hljs-variable">$txt2</span> --&gt; Concatenation of <span class="hljs-variable">$txt1</span> <span class="hljs-keyword">and</span> <span class="hljs-variable">$txt2</span>	
+
+.= --&gt; Concatenation assignment --&gt; <span class="hljs-variable">$txt1</span> .= <span class="hljs-variable">$txt2</span> --&gt; Appends <span class="hljs-variable">$txt2</span> to <span class="hljs-variable">$txt1</span></code></pre></div>
+<h3 id="array">Array</h3>
+<h4 id="operator-name-example-result-5"><strong>Operator</strong> --&gt; <strong>Name</strong> --&gt; <strong>Example</strong> --&gt; <strong>Result</strong></h4>
+<ul>
+<li>array operators are used to compare arrays.</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">+ --&gt; Union --&gt; $x + $y --&gt; Union of $x and $y	
+
+== --&gt; Equality --&gt; $x == $y --&gt; Returns true if $x and $y have the same key/value pairs	
+
+=== --&gt; Identity --&gt; $x === $y --&gt; Returns true if $x and $y have the same key/value pairs in the same order and of the same types
+
+!= --&gt; Inequality --&gt; $x != $y --&gt; Returns true if $x is not equal to $y	
+
+&lt;&gt; --&gt; Inequality --&gt; $x &lt;&gt; $y --&gt; Returns true if $x is not equal to $y	
+
+!== --&gt; Non-identity --&gt; $x !== $y --&gt; Returns true if $x is not identical to $y</pre><pre class="hljs"><code>+ --&gt; Union --&gt; <span class="hljs-variable">$x</span> + <span class="hljs-variable">$y</span> --&gt; Union of <span class="hljs-variable">$x</span> <span class="hljs-keyword">and</span> <span class="hljs-variable">$y</span>	
+
+== --&gt; Equality --&gt; <span class="hljs-variable">$x</span> == <span class="hljs-variable">$y</span> --&gt; Returns <span class="hljs-keyword">true</span> if <span class="hljs-variable">$x</span> <span class="hljs-keyword">and</span> <span class="hljs-variable">$y</span> have the same key/value pairs	
+
+=== --&gt; Identity --&gt; <span class="hljs-variable">$x</span> === <span class="hljs-variable">$y</span> --&gt; Returns <span class="hljs-keyword">true</span> if <span class="hljs-variable">$x</span> <span class="hljs-keyword">and</span> <span class="hljs-variable">$y</span> have the same key/value pairs <span class="hljs-keyword">in</span> the same order <span class="hljs-keyword">and</span> of the same types
+
+!= --&gt; Inequality --&gt; <span class="hljs-variable">$x</span> != <span class="hljs-variable">$y</span> --&gt; Returns <span class="hljs-keyword">true</span> if <span class="hljs-variable">$x</span> is <span class="hljs-keyword">not</span> equal to <span class="hljs-variable">$y</span>	
+
+&lt;&gt; --&gt; Inequality --&gt; <span class="hljs-variable">$x</span> &lt;&gt; <span class="hljs-variable">$y</span> --&gt; Returns <span class="hljs-keyword">true</span> if <span class="hljs-variable">$x</span> is <span class="hljs-keyword">not</span> equal to <span class="hljs-variable">$y</span>	
+
+!== --&gt; Non-identity --&gt; <span class="hljs-variable">$x</span> !== <span class="hljs-variable">$y</span> --&gt; Returns <span class="hljs-keyword">true</span> if <span class="hljs-variable">$x</span> is <span class="hljs-keyword">not</span> identical to <span class="hljs-variable">$y</span></code></pre></div>
+<h3 id="conditional-assignment">Conditional Assignment</h3>
+<h4 id="operator-name-example-result-6"><strong>Operator</strong> --&gt; <strong>Name</strong> --&gt; <strong>Example</strong> --&gt; <strong>Result</strong></h4>
+<ul>
+<li>conditional assignment operators are used to set a value depending on conditions.</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">?: --&gt; Ternary --&gt; $x = expr1 ? expr2 : expr3 --&gt; Returns the value of $x.  The value of $x is expr2 if expr1 = TRUE.  The value of $x is expr3 if expr1 = FALSE	
+
+?? --&gt; Null coalescing --&gt; $x = expr1 ?? expr2 --&gt; Returns the value of $x.  The value of $x is expr1 if expr1 exists, and is not NULL.  If expr1 does not exist, or is NULL, the value of $x is expr2.  Introduced in PHP 7</pre><pre class="hljs"><code>?: --&gt; Ternary --&gt; <span class="hljs-variable">$x</span> = expr1 ? expr2 : expr3 --&gt; Returns the <span class="hljs-keyword">value</span> <span class="hljs-keyword">of</span> <span class="hljs-variable">$x</span>.  The <span class="hljs-keyword">value</span> <span class="hljs-keyword">of</span> <span class="hljs-variable">$x</span> <span class="hljs-literal">is</span> expr2 <span class="hljs-keyword">if</span> expr1 = TRUE.  The <span class="hljs-keyword">value</span> <span class="hljs-keyword">of</span> <span class="hljs-variable">$x</span> <span class="hljs-literal">is</span> expr3 <span class="hljs-keyword">if</span> expr1 = FALSE	
+
+?? --&gt; Null coalescing --&gt; <span class="hljs-variable">$x</span> = expr1 ?? expr2 --&gt; Returns the <span class="hljs-keyword">value</span> <span class="hljs-keyword">of</span> <span class="hljs-variable">$x</span>.  The <span class="hljs-keyword">value</span> <span class="hljs-keyword">of</span> <span class="hljs-variable">$x</span> <span class="hljs-literal">is</span> expr1 <span class="hljs-keyword">if</span> expr1<span class="hljs-built_in"> exists</span>, <span class="hljs-keyword">and</span> <span class="hljs-literal">is</span><span class="hljs-built_in"> not</span> NULL.  If expr1 does<span class="hljs-built_in"> not</span> exist, <span class="hljs-keyword">or</span> <span class="hljs-literal">is</span> NULL, the <span class="hljs-keyword">value</span> <span class="hljs-keyword">of</span> <span class="hljs-variable">$x</span> <span class="hljs-literal">is</span> expr2.  Introduced <span class="hljs-keyword">in</span> PHP <span class="hljs-number">7</span></code></pre></div>
+<h2 id="conditional-statments">Conditional Statments</h2>
+<ul>
+<li>The <code class="inline-code">if...elseif...else</code> statement executes different codes for more than two conditions.</li>
+</ul>
+<h3 id="switch-statment">Switch Statment</h3>
+<ul>
+<li>
+<p>The switch statement is used to perform different actions based on different conditions.</p>
+<ul>
+<li>Use the switch statement to select one of many blocks of code to be executed.</li>
+</ul>
+</li>
+<li>
+<p>Syntax</p>
+</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">switch (n) {
+  case label1:
+    code to be executed if n=label1;
+    break;
+  case label2:
+    code to be executed if n=label2;
+    break;
+  case label3:
+    code to be executed if n=label3;
+    break;
+    ...
+  default:
+    code to be executed if n is different from all labels;
+}</pre><pre class="hljs"><code><span class="hljs-keyword">switch</span> (n) {
+  <span class="hljs-keyword">case</span> label1:
+    code <span class="hljs-keyword">to</span> be executed <span class="hljs-keyword">if</span> n=label1;
+    <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">case</span> label2:
+    code <span class="hljs-keyword">to</span> be executed <span class="hljs-keyword">if</span> n=label2;
+    <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">case</span> label3:
+    code <span class="hljs-keyword">to</span> be executed <span class="hljs-keyword">if</span> n=label3;
+    <span class="hljs-keyword">break</span>;
+    ...
+  default:
+    code <span class="hljs-keyword">to</span> be executed <span class="hljs-keyword">if</span> n <span class="hljs-keyword">is</span> different <span class="hljs-keyword">from</span> all labels;
+}</code></pre></div>
+<ul>
+<li>
+<p>This is how it works:</p>
+<ul>
+<li>
+<p>First we have a single expression n (most often a variable), that is evaluated once. The value of the expression is then compared with the values for each case in the structure. If there is a match, the block of code associated with that case is executed.</p>
+</li>
+<li>
+<p>Use break to prevent the code from running into the next case automatically. The default statement is used if no match is found.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="loops">Loops</h2>
+<ul>
+<li>
+<p>In PHP, we have the following loop types:</p>
+<ul>
+<li>
+<p>while - loops through a block of code as long as the specified condition is true</p>
+</li>
+<li>
+<p>do...while - loops through a block of code once, and then repeats the loop as long as the specified condition is true</p>
+</li>
+<li>
+<p>for - loops through a block of code a specified number of times</p>
+</li>
+<li>
+<p>foreach - loops through a block of code for each element in an array</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="dowhile-loop"><code class="inline-code">do...while</code> Loop</h3>
+<ul>
+<li>
+<p>The <code class="inline-code">do...while</code> loop <strong>will always execute the block of code once</strong>, it will <strong>then check the condition, and repeat</strong> the loop while the specified condition is true.</p>
+</li>
+<li>
+<p>Syntax</p>
+</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">do {
+  code to be executed;
+} while (condition is true);</pre><pre class="hljs"><code><span class="hljs-keyword">do</span> {
+  code <span class="hljs-keyword">to</span> be executed;
+} <span class="hljs-keyword">while</span> (condition <span class="hljs-keyword">is</span> <span class="hljs-literal">true</span>);</code></pre></div>
+<h3 id="for-loop"><code class="inline-code">for</code> Loop</h3>
+<ul>
+<li>
+<p>The for loop is used when you know in advance how many times the script should run.</p>
+</li>
+<li>
+<p>Syntax</p>
+</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">for (init counter; test counter; increment counter) {
+  code to be executed for each iteration;
+}</pre><pre class="hljs"><code><span class="hljs-attribute">for</span> (init counter; <span class="hljs-attribute">test</span> counter; <span class="hljs-attribute">increment</span> counter) {
+  <span class="hljs-attribute">code</span> to be executed for each iteration;
+}</code></pre></div>
+<ul>
+<li>
+<p>Parameters:</p>
+<ul>
+<li>
+<p>init counter: Initialize the loop counter value</p>
+<ul>
+<li>
+<p>test counter: Evaluated for each loop iteration. If it evaluates to TRUE, the loop continues. If it evaluates to FALSE, the loop ends.</p>
+</li>
+<li>
+<p>increment counter: Increases the loop counter value</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="foreach-loop"><code class="inline-code">foreach</code> Loop</h3>
+<ul>
+<li>
+<p>The foreach loop <strong>works only on arrays</strong>, and is used to loop through each key/value pair in an array.</p>
+</li>
+<li>
+<p>Syntax</p>
+</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">foreach ($array as $value) {
+  code to be executed;
+}</pre><pre class="hljs"><code><span class="hljs-attribute">foreach</span> (<span class="hljs-variable">$array</span> as <span class="hljs-variable">$value</span>) {
+  <span class="hljs-attribute">code</span> to be executed;
+}</code></pre></div>
+<ul>
+<li>
+<p>For every loop iteration, the value of the current array element is assigned to $value and the array pointer is moved by one, until it reaches the last array element.</p>
+</li>
+<li>
+<p>Example using key/value pair array:</p>
+</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php
+$age = array(&quot;Peter&quot;=&gt;&quot;35&quot;, &quot;Ben&quot;=&gt;&quot;37&quot;, &quot;Joe&quot;=&gt;&quot;43&quot;);
+
+foreach($age as $x =&gt; $val) {
+  echo &quot;$x = $val&lt;br&gt;&quot;;
+}
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span>
+$age = <span class="hljs-keyword">array</span>(<span class="hljs-string">&quot;Peter&quot;</span>=&gt;<span class="hljs-string">&quot;35&quot;</span>, <span class="hljs-string">&quot;Ben&quot;</span>=&gt;<span class="hljs-string">&quot;37&quot;</span>, <span class="hljs-string">&quot;Joe&quot;</span>=&gt;<span class="hljs-string">&quot;43&quot;</span>);
+
+<span class="hljs-keyword">foreach</span>($age <span class="hljs-keyword">as</span> $x =&gt; $val) {
+  <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;<span class="hljs-subst">$x</span> = <span class="hljs-subst">$val</span>&lt;br&gt;&quot;</span>;
+}
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+<h3 id="break-and-continue"><code class="inline-code">break</code> and <code class="inline-code">continue</code></h3>
+<ul>
+<li>
+<p>The <code class="inline-code">break</code> statement can be used to jump out of a loop.</p>
+<ul>
+<li>Example:</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php
+for ($x = 0; $x &lt; 10; $x++) {
+  if ($x == 4) {
+    break;
+  }
+  echo &quot;The number is: $x &lt;br&gt;&quot;;
+}
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">for</span> ($x = <span class="hljs-number">0</span>; $x &lt; <span class="hljs-number">10</span>; $x++) {
+  <span class="hljs-keyword">if</span> ($x == <span class="hljs-number">4</span>) {
+    <span class="hljs-keyword">break</span>;
+  }
+  <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;The number is: <span class="hljs-subst">$x</span> &lt;br&gt;&quot;</span>;
+}
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+</li>
+<li>
+<p>The <code class="inline-code">continue</code> statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.</p>
+<ul>
+<li>Example:</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php
+for ($x = 0; $x &lt; 10; $x++) {
+  if ($x == 4) {
+    continue;
+  }
+  echo &quot;The number is: $x &lt;br&gt;&quot;;
+}
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">for</span> ($x = <span class="hljs-number">0</span>; $x &lt; <span class="hljs-number">10</span>; $x++) {
+  <span class="hljs-keyword">if</span> ($x == <span class="hljs-number">4</span>) {
+    <span class="hljs-keyword">continue</span>;
+  }
+  <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;The number is: <span class="hljs-subst">$x</span> &lt;br&gt;&quot;</span>;
+}
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+</li>
+</ul>
+<h2 id="functions">Functions</h2>
+<h4 id="a-function-name-must-start-with-a-letter-or-an-underscore-function-names-are-not-case-sensitive">A function name must start with a letter or an underscore. Function names are <strong>NOT</strong> case-sensitive.</h4>
+<ul>
+<li>
+<p>The following example shows how to use a default parameter. If we call the function setHeight() without arguments it takes the default value as argument:</p>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php declare(strict_types=1); // strict requirement
+function setHeight(int $minheight = 50) {
+  echo &quot;The height is : $minheight &lt;br&gt;&quot;;
+}
+
+setHeight(350);
+setHeight(); // will use the default value of 50
+setHeight(135);
+setHeight(80);
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">declare</span>(strict_types=<span class="hljs-number">1</span>); <span class="hljs-comment">// strict requirement</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setHeight</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> $minheight = <span class="hljs-number">50</span></span>) </span>{
+  <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;The height is : <span class="hljs-subst">$minheight</span> &lt;br&gt;&quot;</span>;
+}
+
+setHeight(<span class="hljs-number">350</span>);
+setHeight(); <span class="hljs-comment">// will use the default value of 50</span>
+setHeight(<span class="hljs-number">135</span>);
+setHeight(<span class="hljs-number">80</span>);
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+</li>
+<li>
+<p>To let a function return a value, use the <code class="inline-code">return</code> statement.</p>
+<ul>
+<li>
+<p>PHP 7 also supports Type Declarations for the return statement. Like with the type declaration for function arguments, by enabling the strict requirement, it will throw a &quot;Fatal Error&quot; on a type mismatch.</p>
+<ul>
+<li>To declare a type for the function return, add a colon <code class="inline-code">:</code> and the type right before the opening curly <code class="inline-code">{</code> bracket when declaring the function.</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php declare(strict_types=1); // strict requirement
+function addNumbers(float $a, float $b) : float {
+    return $a + $b;
+}
+echo addNumbers(1.2, 5.2);
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">declare</span>(strict_types=<span class="hljs-number">1</span>); <span class="hljs-comment">// strict requirement</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addNumbers</span>(<span class="hljs-params"><span class="hljs-keyword">float</span> $a, <span class="hljs-keyword">float</span> $b</span>) : <span class="hljs-title">float</span> </span>{
+    <span class="hljs-keyword">return</span> $a + $b;
+}
+<span class="hljs-keyword">echo</span> addNumbers(<span class="hljs-number">1.2</span>, <span class="hljs-number">5.2</span>);
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+<ul>
+<li>You can specify a different return type, than the argument types, but make sure the return is the correct type.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>In PHP, arguments are usually passed by value, which means that a copy of the value is used in the function and the variable that was passed into the function cannot be changed.</p>
+</li>
+<li>
+<p>When a function argument is passed by reference, changes to the argument also change the variable that was passed in. To turn a function argument into a reference, the <code class="inline-code">&amp;</code> operator is used.</p>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php
+function add_five(&amp;$value) {
+  $value += 5;
+}
+
+$num = 2;
+add_five($num);
+echo $num;
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add_five</span>(<span class="hljs-params">&amp;$value</span>) </span>{
+  $value += <span class="hljs-number">5</span>;
+}
+
+$num = <span class="hljs-number">2</span>;
+add_five($num);
+<span class="hljs-keyword">echo</span> $num;
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+</li>
+</ul>
+<h2 id="arrays">Arrays</h2>
+<ul>
+<li>
+<p><code class="inline-code">array()</code> function is used to create an array</p>
+</li>
+<li>
+<p>In PHP, there are three types of arrays:</p>
+<ul>
+<li>
+<p>Indexed arrays - Arrays with a numeric index</p>
+</li>
+<li>
+<p>Associative arrays - Arrays with named keys</p>
+</li>
+<li>
+<p>Multidimensional arrays - Arrays containing one or more arrays</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code class="inline-code">count()</code> function is used to return the length (the number of elements) of an array.</p>
+</li>
+</ul>
+<h3 id="indexed-arrays">Indexed Arrays</h3>
+<ul>
+<li>Example of looping through an indexed array:</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php
+$cars = array(&quot;Volvo&quot;, &quot;BMW&quot;, &quot;Toyota&quot;);
+$arrlength = count($cars);
+
+for($x = 0; $x &lt; $arrlength; $x++) {
+  echo $cars[$x];
+  echo &quot;&lt;br&gt;&quot;;
+}
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span>
+$cars = <span class="hljs-keyword">array</span>(<span class="hljs-string">&quot;Volvo&quot;</span>, <span class="hljs-string">&quot;BMW&quot;</span>, <span class="hljs-string">&quot;Toyota&quot;</span>);
+$arrlength = count($cars);
+
+<span class="hljs-keyword">for</span>($x = <span class="hljs-number">0</span>; $x &lt; $arrlength; $x++) {
+  <span class="hljs-keyword">echo</span> $cars[$x];
+  <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;br&gt;&quot;</span>;
+}
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+<h3 id="associative-arrays">Associative Arrays</h3>
+<ul>
+<li>
+<p>Associative arrays are arrays that use named keys that you assign to them.  The named keys can then be used in a script.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php
+$age = array(&quot;Peter&quot;=&gt;&quot;35&quot;, &quot;Ben&quot;=&gt;&quot;37&quot;, &quot;Joe&quot;=&gt;&quot;43&quot;);
+echo &quot;Peter is &quot; . $age['Peter'] . &quot; years old.&quot;;
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span>
+$age = <span class="hljs-keyword">array</span>(<span class="hljs-string">&quot;Peter&quot;</span>=&gt;<span class="hljs-string">&quot;35&quot;</span>, <span class="hljs-string">&quot;Ben&quot;</span>=&gt;<span class="hljs-string">&quot;37&quot;</span>, <span class="hljs-string">&quot;Joe&quot;</span>=&gt;<span class="hljs-string">&quot;43&quot;</span>);
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Peter is &quot;</span> . $age[<span class="hljs-string">&#x27;Peter&#x27;</span>] . <span class="hljs-string">&quot; years old.&quot;</span>;
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+<ul>
+<li>
+<p>To loop through and print all the values of an associative array, you could use a <code class="inline-code">foreach</code> loop.</p>
+</li>
+<li>
+<p>Example:</p>
+</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php
+$age = array(&quot;Peter&quot;=&gt;&quot;35&quot;, &quot;Ben&quot;=&gt;&quot;37&quot;, &quot;Joe&quot;=&gt;&quot;43&quot;);
+
+foreach($age as $x =&gt; $x_value) {
+  echo &quot;Key=&quot; . $x . &quot;, Value=&quot; . $x_value;
+  echo &quot;&lt;br&gt;&quot;;
+}
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span>
+$age = <span class="hljs-keyword">array</span>(<span class="hljs-string">&quot;Peter&quot;</span>=&gt;<span class="hljs-string">&quot;35&quot;</span>, <span class="hljs-string">&quot;Ben&quot;</span>=&gt;<span class="hljs-string">&quot;37&quot;</span>, <span class="hljs-string">&quot;Joe&quot;</span>=&gt;<span class="hljs-string">&quot;43&quot;</span>);
+
+<span class="hljs-keyword">foreach</span>($age <span class="hljs-keyword">as</span> $x =&gt; $x_value) {
+  <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Key=&quot;</span> . $x . <span class="hljs-string">&quot;, Value=&quot;</span> . $x_value;
+  <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;br&gt;&quot;</span>;
+}
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+<h3 id="multi-dimensional-arrays">Multi-dimensional Arrays</h3>
+<ul>
+<li>
+<p>A multidimensional array is an array containing one or more arrays.</p>
+</li>
+<li>
+<p>PHP supports multidimensional arrays that are two, three, four, five, or more levels deep. However, arrays more than three levels deep are hard to manage for most people.</p>
+</li>
+</ul>
+<h4 id="the-dimension-of-an-array-indicates-the-number-of-indices-you-need-to-select-an-element">The dimension of an array indicates the number of indices you need to select an element.</h4>
+<ul>
+<li>
+<p>For a <strong>two-dimensional</strong> array you need <strong>two indices</strong> to select an element</p>
+</li>
+<li>
+<p>For a <strong>three-dimensional</strong> array you need <strong>three indices</strong> to select an element</p>
+</li>
+</ul>
+<h3 id="sorting-arrays">Sorting Arrays</h3>
+<ul>
+<li>
+<p>The elements in an array can be sorted in alphabetical or numerical order, descending or ascending.</p>
+</li>
+<li>
+<p>Array sort functions:</p>
+<ul>
+<li>
+<p>sort() - sort arrays in ascending order</p>
+</li>
+<li>
+<p>rsort() - sort arrays in descending order</p>
+</li>
+<li>
+<p>asort() - sort associative arrays in ascending order, according to the value</p>
+</li>
+<li>
+<p>ksort() - sort associative arrays in ascending order, according to the key</p>
+</li>
+<li>
+<p>arsort() - sort associative arrays in descending order, according to the value</p>
+</li>
+<li>
+<p>krsort() - sort associative arrays in descending order, according to the key</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="superglobals">Superglobals</h2>
+<ul>
+<li>
+<p>Some predefined variables in PHP are &quot;superglobals&quot;, which means that they are always accessible, regardless of scope - and you can access them from any function, class or file without having to do anything special.</p>
+</li>
+<li>
+<p>The PHP superglobal variables are:</p>
+<ul>
+<li>
+<p><code class="inline-code">$GLOBALS</code></p>
+</li>
+<li>
+<p><code class="inline-code">$_SERVER</code></p>
+</li>
+<li>
+<p><code class="inline-code">$_REQUEST</code></p>
+</li>
+<li>
+<p><code class="inline-code">$_POST</code></p>
+</li>
+<li>
+<p><code class="inline-code">$_GET</code></p>
+</li>
+<li>
+<p><code class="inline-code">$_FILES</code></p>
+</li>
+<li>
+<p><code class="inline-code">$_ENV</code></p>
+</li>
+<li>
+<p><code class="inline-code">$_COOKIE</code></p>
+</li>
+<li>
+<p><code class="inline-code">$_SESSION</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="globals"><code class="inline-code">$GLOBALS</code></h3>
+<ul>
+<li>
+<p><code class="inline-code">$GLOBALS</code> is a PHP super global variable which is used to access global variables from anywhere in the PHP script (also from within functions or methods).</p>
+</li>
+<li>
+<p>PHP stores all global variables in an array called <code class="inline-code">$GLOBALS[index]</code>. The index holds the name of the variable.</p>
+</li>
+<li>
+<p>Example:</p>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php
+$x = 75;
+$y = 25;
+ 
+function addition() {
+  $GLOBALS['z'] = $GLOBALS['x'] + $GLOBALS['y'];
+}
+ 
+addition();
+echo $z;
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span>
+$x = <span class="hljs-number">75</span>;
+$y = <span class="hljs-number">25</span>;
+ 
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addition</span>(<span class="hljs-params"></span>) </span>{
+  $GLOBALS[<span class="hljs-string">&#x27;z&#x27;</span>] = $GLOBALS[<span class="hljs-string">&#x27;x&#x27;</span>] + $GLOBALS[<span class="hljs-string">&#x27;y&#x27;</span>];
+}
+ 
+addition();
+<span class="hljs-keyword">echo</span> $z;
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+</li>
+</ul>
+<h3 id="_server"><code class="inline-code">$_SERVER</code></h3>
+<ul>
+<li>
+<p><code class="inline-code">$_SERVER</code> is a PHP super global variable which holds information about headers, paths, and script locations.</p>
+</li>
+<li>
+<p>The example below shows how to use some of the elements in <code class="inline-code">$_SERVER</code>:</p>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php
+echo $_SERVER['PHP_SELF'];
+echo &quot;&lt;br&gt;&quot;;
+echo $_SERVER['SERVER_NAME'];
+echo &quot;&lt;br&gt;&quot;;
+echo $_SERVER['HTTP_HOST'];
+echo &quot;&lt;br&gt;&quot;;
+echo $_SERVER['HTTP_REFERER'];
+echo &quot;&lt;br&gt;&quot;;
+echo $_SERVER['HTTP_USER_AGENT'];
+echo &quot;&lt;br&gt;&quot;;
+echo $_SERVER['SCRIPT_NAME'];
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">echo</span> $_SERVER[<span class="hljs-string">&#x27;PHP_SELF&#x27;</span>];
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;br&gt;&quot;</span>;
+<span class="hljs-keyword">echo</span> $_SERVER[<span class="hljs-string">&#x27;SERVER_NAME&#x27;</span>];
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;br&gt;&quot;</span>;
+<span class="hljs-keyword">echo</span> $_SERVER[<span class="hljs-string">&#x27;HTTP_HOST&#x27;</span>];
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;br&gt;&quot;</span>;
+<span class="hljs-keyword">echo</span> $_SERVER[<span class="hljs-string">&#x27;HTTP_REFERER&#x27;</span>];
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;br&gt;&quot;</span>;
+<span class="hljs-keyword">echo</span> $_SERVER[<span class="hljs-string">&#x27;HTTP_USER_AGENT&#x27;</span>];
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&lt;br&gt;&quot;</span>;
+<span class="hljs-keyword">echo</span> $_SERVER[<span class="hljs-string">&#x27;SCRIPT_NAME&#x27;</span>];
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+</li>
+</ul>
+<p>The following table lists the most important elements that can go inside <code class="inline-code">$_SERVER</code>:<br>
+<br class="jop-noMdConv"/></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Element/Code</th>
+<th style="text-align:center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['PHP_SELF']</code></td>
+<td style="text-align:center">Returns the filename of the currently executing script</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['GATEWAY_INTERFACE']</code></td>
+<td style="text-align:center">Returns the version of the Common Gateway Interface (CGI) the server is using</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['SERVER_ADDR']</code></td>
+<td style="text-align:center">Returns the IP address of the host server</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['SERVER_NAME']</code></td>
+<td style="text-align:center">Returns the name of the host server</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['SERVER_SOFTWARE']</code></td>
+<td style="text-align:center">Returns the server identification string</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['SERVER_PROTOCOL']</code></td>
+<td style="text-align:center">Returns the name and revision of the information protocol (such as HTTP/1.1)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['REQUEST_METHOD']</code></td>
+<td style="text-align:center">Returns the request method used to access the page (such as POST)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['REQUEST_TIME']</code></td>
+<td style="text-align:center">Returns the timestamp of the start of the request (such as 1377687496)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['QUERY_STRING']</code></td>
+<td style="text-align:center">Returns the query string if the page is accessed via a query string</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['HTTP_ACCEPT']</code></td>
+<td style="text-align:center">Returns the Accept header from the current request</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['HTTP_ACCEPT_CHARSET']</code></td>
+<td style="text-align:center">Returns the Accept_Charset header from the current request (such as utf-8,ISO-8859-1)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['HTTP_HOST']</code></td>
+<td style="text-align:center">Returns the Host header from the current request</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['HTTP_REFERER']</code></td>
+<td style="text-align:center">Returns the complete URL of the current page (not reliable because not all user-agents support it)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['HTTPS']</code></td>
+<td style="text-align:center">Is the script queried through a secure HTTP protocol</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['REMOTE_ADDR']</code></td>
+<td style="text-align:center">Returns the IP address from where the user is viewing the current page</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['REMOTE_HOST']</code></td>
+<td style="text-align:center">Returns the Host name from where the user is viewing the current page</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['REMOTE_PORT']</code></td>
+<td style="text-align:center">Returns the port being used on the user's machine to communicate with the web server</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['SCRIPT_FILENAME']</code></td>
+<td style="text-align:center">Returns the absolute pathname of the currently executing script</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['SERVER_ADMIN']</code></td>
+<td style="text-align:center">Returns the value given to the SERVER_ADMIN directive in the web server configuration file (if your script runs on a virtual host, it will be the value defined for that virtual host) (such as someone@w3schools.com)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['SERVER_PORT']</code></td>
+<td style="text-align:center">Returns the port on the server machine being used by the web server for communication</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['SERVER_SIGNATURE']</code></td>
+<td style="text-align:center">Returns the server version and virtual host name which are added to server-generated pages</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['PATH_TRANSLATED']</code></td>
+<td style="text-align:center">Returns the file system based path to the current script</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['SCRIPT_NAME']</code></td>
+<td style="text-align:center">Returns the path of the current script</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$_SERVER['SCRIPT_URI']</code></td>
+<td style="text-align:center">Returns the URI of the current page</td>
+</tr>
+</tbody>
+</table>
+<br class="jop-noMdConv"/>
+<h3 id="_request"><code class="inline-code">$_REQUEST</code></h3>
+<ul>
+<li>
+<p><code class="inline-code">$_REQUEST</code> is a PHP super global variable which is used to collect data after submitting an HTML form.</p>
+</li>
+<li>
+<p>The example below shows a form with an input field and a submit button. When a user submits the data by clicking on &quot;Submit&quot;, the form data is sent to the file specified in the action attribute of the <code class="inline-code">&lt;form&gt;</code> tag. In this example, we point to this file itself for processing form data. If you wish to use another PHP file to process form data, replace that with the filename of your choice. Then, we can use the super global variable <code class="inline-code">$_REQUEST</code> to collect the value of the input field:</p>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;html&gt;
+&lt;body&gt;
+
+&lt;form method=&quot;post&quot; action=&quot;&lt;?php echo $_SERVER['PHP_SELF'];?&gt;&quot;&gt;
+  Name: &lt;input type=&quot;text&quot; name=&quot;fname&quot;&gt;
+  &lt;input type=&quot;submit&quot;&gt;
+&lt;/form&gt;
+
+&lt;?php
+if ($_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;POST&quot;) {
+  // collect value of input field
+  $name = $_REQUEST['fname'];
+  if (empty($name)) {
+    echo &quot;Name is empty&quot;;
+  } else {
+    echo $name;
+  }
+}
+?&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre><pre class="hljs"><code><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;</span></span></span><span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> $_SERVER[<span class="hljs-string">&#x27;PHP_SELF&#x27;</span>];<span class="hljs-meta">?&gt;</span></span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span>
+  Name: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;fname&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+
+</span><span class="php"><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">if</span> ($_SERVER[<span class="hljs-string">&quot;REQUEST_METHOD&quot;</span>] == <span class="hljs-string">&quot;POST&quot;</span>) {
+  <span class="hljs-comment">// collect value of input field</span>
+  $name = $_REQUEST[<span class="hljs-string">&#x27;fname&#x27;</span>];
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">empty</span>($name)) {
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;Name is empty&quot;</span>;
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">echo</span> $name;
+  }
+}
+<span class="hljs-meta">?&gt;</span></span><span class="xml">
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span></code></pre></div>
+</li>
+</ul>
+<h3 id="_post"><code class="inline-code">$_POST</code></h3>
+<ul>
+<li><code class="inline-code">$_POST</code> is a PHP super global variable which is used to collect form data after submitting an HTML form with method=&quot;post&quot;. <code class="inline-code">$_POST</code> is also widely used to pass variables.</li>
+</ul>
+<h3 id="_get"><code class="inline-code">$_GET</code></h3>
+<ul>
+<li>
+<p><code class="inline-code">$_GET</code> is a PHP super global variable which is used to collect form data after submitting an HTML form with <code class="inline-code">method=&quot;get&quot;</code>.</p>
+</li>
+<li>
+<p><code class="inline-code">$_GET</code> can also collect data sent in the URL.</p>
+</li>
+</ul>
+<h2 id="regular-expressions">Regular Expressions</h2>
+<ul>
+<li>
+<p>A regular expression is a sequence of characters that forms a search pattern. When you search for data in a text, you can use this search pattern to describe what you are searching for.</p>
+<ul>
+<li>
+<p>A regular expression can be a single character, or a more complicated pattern.</p>
+</li>
+<li>
+<p>Regular expressions can be used to perform all types of text search and text replace operations.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>In PHP, regular expressions are strings composed of delimiters, a pattern and optional modifiers.</p>
+</li>
+<li>
+<p>Syntax</p>
+<ul>
+<li>
+<p><code class="inline-code">$exp = &quot;/w3schools/i&quot;;</code></p>
+</li>
+<li>
+<p>In the example above, <code class="inline-code">/</code> is the delimiter, <code class="inline-code">w3schools</code> is the pattern that is being searched for, and <code class="inline-code">i</code> is a modifier that makes the search case-insensitive.</p>
+</li>
+<li>
+<p>The delimiter can be any character that is not a letter, number, backslash or space. The most common delimiter is the forward slash <code class="inline-code">/</code>, but when your pattern contains forward slashes it is convenient to choose other delimiters such as <code class="inline-code">#</code> or <code class="inline-code">~</code>.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="regular-expression-functions">Regular Expression Functions</h3>
+<ul>
+<li>PHP provides a variety of functions that allow you to use regular expressions. The <code class="inline-code">preg_match()</code>, <code class="inline-code">preg_match_all()</code> and <code class="inline-code">preg_replace()</code> functions are some of the most commonly used ones.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Function</th>
+<th style="text-align:right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code class="inline-code">preg_match()</code></td>
+<td style="text-align:right">Returns 1 if the pattern was found in the string and 0 if not</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">preg_match_all()</code></td>
+<td style="text-align:right">Returns the number of times the pattern was found in the string, which may also be 0</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">preg_replace()</code></td>
+<td style="text-align:right">Returns a new string where matched patterns have been replaced with another string</td>
+</tr>
+</tbody>
+</table>
+<h3 id="regular-expression-modifiers">Regular Expression Modifiers</h3>
+<ul>
+<li>Modifiers can change how a search is performed.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Modifier</th>
+<th style="text-align:right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code class="inline-code">i</code></td>
+<td style="text-align:right">Performs a case-insensitive search</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">m</code></td>
+<td style="text-align:right">Performs a multiline search (patterns that search for the beginning or end of a string will match the beginning or end of each line)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">u</code></td>
+<td style="text-align:right">Enables correct matching of UTF-8 encoded patterns</td>
+</tr>
+</tbody>
+</table>
+<h3 id="regular-expression-patterns">Regular Expression Patterns</h3>
+<ul>
+<li>Brackets are used to find a range of characters.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Expression</th>
+<th style="text-align:right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code class="inline-code">[abc]</code></td>
+<td style="text-align:right">Find one character from the options between the brackets</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">[^abc]</code></td>
+<td style="text-align:right">Find any character NOT between the brackets</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">0-9</code></td>
+<td style="text-align:right">Find one character from the range 0 to 9</td>
+</tr>
+</tbody>
+</table>
+<h3 id="metacharacters">Metacharacters</h3>
+<ul>
+<li>Metacharacters are characters with a special meaning.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Metacharacter</th>
+<th style="text-align:right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code class="inline-code">|</code></td>
+<td style="text-align:right">Find a match for any one of the patterns separated by</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">.</code></td>
+<td style="text-align:right">Find just one instance of any character</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">^</code></td>
+<td style="text-align:right">Finds a match as the beginning of a string as in: ^Hello</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">$</code></td>
+<td style="text-align:right">Finds a match at the end of the string as in: World$</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">\d</code></td>
+<td style="text-align:right">Find a digit</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">\s</code></td>
+<td style="text-align:right">Find a whitespace character</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">\b</code></td>
+<td style="text-align:right">Find a match at the beginning of a word like this: \bWORD, or at the end of a word like this: WORD\b</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">\uxxxx</code></td>
+<td style="text-align:right">Find the Unicode character specified by the hexadecimal number xxxx</td>
+</tr>
+</tbody>
+</table>
+<h3 id="quantifiers">Quantifiers</h3>
+<ul>
+<li>Quantifiers define quantities.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Quantifier</th>
+<th style="text-align:right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code class="inline-code">n+</code></td>
+<td style="text-align:right">Matches any string that contains at least one n</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">n*</code></td>
+<td style="text-align:right">Matches any string that contains zero or more occurrences of n</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">n?</code></td>
+<td style="text-align:right">Matches any string that contains zero or one occurrences of n</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">n{x}</code></td>
+<td style="text-align:right">Matches any string that contains a sequence of X n's</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">n{x,y}</code></td>
+<td style="text-align:right">Matches any string that contains a sequence of X to Y n's</td>
+</tr>
+<tr>
+<td style="text-align:left"><code class="inline-code">n{x,}</code></td>
+<td style="text-align:right">Matches any string that contains a sequence of at least X n's</td>
+</tr>
+</tbody>
+</table>
+<h4 id="if-your-expression-needs-to-search-for-one-of-the-special-characters-you-can-use-a-backslash-to-escape-them-for-example-to-search-for-one-or-more-question-marks-you-can-use-the-following-expression-pattern">If your expression needs to search for one of the special characters you can use a backslash <code class="inline-code">\</code> to escape them. For example, to search for one or more question marks you can use the following expression: <code class="inline-code">$pattern = '/\?+/';</code></h4>
+<h3 id="grouping">Grouping</h3>
+<ul>
+<li>
+<p>You can use parentheses to apply quantifiers to entire patterns. They also can be used to select parts of the pattern to be used as a match.</p>
+<ul>
+<li>Example:</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php
+$str = &quot;Apples and bananas.&quot;;
+$pattern = &quot;/ba(na){2}/i&quot;;
+echo preg_match($pattern, $str); // Outputs 1
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span>
+$str = <span class="hljs-string">&quot;Apples and bananas.&quot;</span>;
+$pattern = <span class="hljs-string">&quot;/ba(na){2}/i&quot;</span>;
+<span class="hljs-keyword">echo</span> preg_match($pattern, $str); <span class="hljs-comment">// Outputs 1</span>
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+</li>
+</ul>
+<h2 id="form-handling">Form Handling</h2>
+<ul>
+<li>When the user fills out a form and clicks the submit button, the form data is sent for processing to a PHP file.</li>
+</ul>
+<h4 id="proper-validation-of-form-data-is-important-to-protect-your-form-from-hackers-and-spammers">Proper validation of form data is important to protect your form from hackers and spammers!</h4>
+<h3 id="get-vs-post">GET vs. POST</h3>
+<ul>
+<li>
+<p>Both GET and POST create an array (e.g. array( key1 =&gt; value1, key2 =&gt; value2, key3 =&gt; value3, ...)). This array holds key/value pairs, where keys are the names of the form controls and values are the input data from the user.</p>
+</li>
+<li>
+<p>Both GET and POST are treated as <code class="inline-code">$_GET</code> and <code class="inline-code">$_POST</code>. These are superglobals, which means that they are always accessible, regardless of scope - and you can access them from any function, class or file without having to do anything special.</p>
+</li>
+<li>
+<p><code class="inline-code">$_GET</code> is an array of variables passed to the current script <strong>via the URL parameters</strong>.</p>
+</li>
+<li>
+<p><code class="inline-code">$_POST</code> is an array of variables passed to the current script <strong>via the HTTP POST method</strong>.</p>
+</li>
+</ul>
+<h3 id="get">GET</h3>
+<ul>
+<li>
+<p><strong>Information</strong> sent from a form with the GET method is <strong>visible to everyone</strong> (all variable names and values are displayed in the URL).</p>
+</li>
+<li>
+<p>GET also has <strong>limits on the amount of information</strong> to send. The limitation is <strong>about 2000 characters</strong>. However, because the variables are displayed in the URL, it is <strong>possible to bookmark</strong> the page.</p>
+</li>
+<li>
+<p>Should only be used for sending non-sensitive data.</p>
+</li>
+</ul>
+<h4 id="get-should-never-be-used-for-sending-passwords-or-other-sensitive-information">GET should <strong>NEVER</strong> be used for sending passwords or other <strong>sensitive information</strong>!</h4>
+<h3 id="post">POST</h3>
+<ul>
+<li>
+<p><strong>Information</strong> sent from a form with the POST method is <strong>invisible to others</strong> (all names/values are embedded within the body of the HTTP request) and has <strong>no limits on the amount of information</strong> to send.</p>
+</li>
+<li>
+<p>Moreover POST supports advanced functionality such as support for multi-part binary input while uploading files to server.</p>
+</li>
+<li>
+<p>However, because the variables are not displayed in the URL, it is <strong>not possible to bookmark the page</strong>.</p>
+</li>
+</ul>
+<h4 id="developers-prefer-post-for-sending-form-data">Developers prefer POST for sending form data.</h4>
+<h2 id="form-validation">Form Validation</h2>
+<ul>
+<li>
+<p><code class="inline-code">$_SERVER[&quot;PHP_SELF&quot;]</code> is a super global variable that returns the filename of the currently executing script.</p>
+<ul>
+<li>the <code class="inline-code">$_SERVER[&quot;PHP_SELF&quot;]</code> sends the submitted form data to the page itself, instead of jumping to a different page. This way, the user will get error messages on the same page as the form.</li>
+</ul>
+</li>
+<li>
+<p><code class="inline-code">htmlspecialchars()</code> function converts special characters to HTML entities.</p>
+<ul>
+<li>
+<p>This means that it will replace HTML characters like <code class="inline-code">&lt;</code> and <code class="inline-code">&gt;</code> with <code class="inline-code">&amp;lt</code>; and <code class="inline-code">&amp;gt</code>;. This prevents attackers from exploiting the code by injecting HTML or Javascript code (Cross-site Scripting attacks) in forms.</p>
+<ul>
+<li>
+<p>Cross-site scripting (XSS) is a type of computer security vulnerability typically found in Web applications. XSS enables attackers to inject client-side script into Web pages viewed by other users.</p>
+</li>
+<li>
+<p>Assume we have the following form in a page named &quot;test_form.php&quot;:</p>
+</li>
+</ul>
+<p><code class="inline-code">&lt;form method=&quot;post&quot; action=&quot;&lt;?php echo $_SERVER[&quot;PHP_SELF&quot;];?&gt;&quot;&gt;</code></p>
+<ul>
+<li>Now, if a user enters the normal URL in the address bar like &quot;<a data-from-md title='http://www.example.com/test_form.php' href='http://www.example.com/test_form.php'>http://www.example.com/test_form.php</a>&quot;, the above code will be translated to:</li>
+</ul>
+<p><code class="inline-code">&lt;form method=&quot;post&quot; action=&quot;test_form.php&quot;&gt;</code></p>
+<ul>
+<li>So far, so good.  However, consider that a user enters the following URL in the address bar:</li>
+</ul>
+<p><code class="inline-code">http://www.example.com/test_form.php/%22%3E%3Cscript%3Ealert('hacked')%3C/script%3E</code></p>
+<ul>
+<li>In this case, the above code will be translated to:</li>
+</ul>
+<p><code class="inline-code">&lt;form method=&quot;post&quot; action=&quot;test_form.php/&quot;&gt;&lt;script&gt;alert('hacked')&lt;/script&gt;</code></p>
+<ul>
+<li>
+<p>This code adds a script tag and an alert command. And when the page loads, the JavaScript code will be executed (the user will see an alert box). This is just a simple and harmless example how the <code class="inline-code">PHP_SELF</code> variable can be exploited.</p>
+</li>
+<li>
+<p>Be aware that any JavaScript code can be added inside the <code class="inline-code">&lt;script&gt;</code> tag! A hacker can redirect the user to a file on another server, and that file can hold malicious code that can alter the global variables or submit the form to another address to save the user data, for example.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="how-to-avoid-_serverphp_self-exploits">How to Avoid <code class="inline-code">$_SERVER[&quot;PHP_SELF&quot;]</code> Exploits</h3>
+<pre><code>* `$_SERVER[&quot;PHP_SELF&quot;]` exploits can be avoided by using the `htmlspecialchars()` function.
+
+``` &lt;form method=&quot;post&quot; action=&quot;&lt;?php echo htmlspecialchars($_SERVER[&quot;PHP_SELF&quot;]);?&gt;&quot;&gt; ```
+
+* The `htmlspecialchars()` function converts special characters to HTML entities. Now if the user tries to exploit the `PHP_SELF` variable, it will result in the following output:
+
+``` &lt;form method=&quot;post&quot; action=&quot;test_form.php/&amp;quot;&amp;gt;&amp;lt;script&amp;gt;alert('hacked')&amp;lt;/script&amp;gt;&quot;&gt; ```
+
+* The exploit attempt fails, and no harm is done!
+</code></pre>
+<h3 id="validate-form-data-with-php">Validate Form Data With PHP</h3>
+<ul>
+<li>
+<p>The first thing we will do is to pass all variables through PHP's <code class="inline-code">htmlspecialchars()</code> function.</p>
+<ul>
+<li>When we use the <code class="inline-code">htmlspecialchars()</code> function; then if a user tries to submit the following in a text field:</li>
+</ul>
+<p><code class="inline-code">&lt;script&gt;location.href('http://www.hacked.com')&lt;/script&gt;</code></p>
+<ul>
+<li>this would not be executed, because it would be saved as HTML escaped code, like this:</li>
+</ul>
+<p><code class="inline-code">&amp;lt;script&amp;gt;location.href('http://www.hacked.com')&amp;lt;/script&amp;gt;</code></p>
+<ul>
+<li>The code is now safe to be displayed on a page or inside an e-mail.</li>
+</ul>
+</li>
+<li>
+<p>We will also do two more things when the user submits the form:</p>
+<ul>
+<li>
+<p>Strip unnecessary characters (extra space, tab, newline) from the user input data (with the <code class="inline-code">PHP trim()</code> function)</p>
+</li>
+<li>
+<p>Remove backslashes <code class="inline-code">\</code> from the user input data (with the PHP <code class="inline-code">stripslashes()</code> function)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The next step is to create a function that will do all the checking for us (which is much more convenient than writing the same code over and over again).</p>
+<ul>
+<li>We will name the function <code class="inline-code">test_input()</code>.</li>
+</ul>
+</li>
+<li>
+<p>Now, we can check each <code class="inline-code">$_POST</code> variable with the <code class="inline-code">test_input()</code> function, and the script looks like this:</p>
+</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php
+// define variables and set to empty values
+$name = $email = $gender = $comment = $website = &quot;&quot;;
+
+if ($_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;POST&quot;) {
+  $name = test_input($_POST[&quot;name&quot;]);
+  $email = test_input($_POST[&quot;email&quot;]);
+  $website = test_input($_POST[&quot;website&quot;]);
+  $comment = test_input($_POST[&quot;comment&quot;]);
+  $gender = test_input($_POST[&quot;gender&quot;]);
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-comment">// define variables and set to empty values</span>
+$name = $email = $gender = $comment = $website = <span class="hljs-string">&quot;&quot;</span>;
+
+<span class="hljs-keyword">if</span> ($_SERVER[<span class="hljs-string">&quot;REQUEST_METHOD&quot;</span>] == <span class="hljs-string">&quot;POST&quot;</span>) {
+  $name = test_input($_POST[<span class="hljs-string">&quot;name&quot;</span>]);
+  $email = test_input($_POST[<span class="hljs-string">&quot;email&quot;</span>]);
+  $website = test_input($_POST[<span class="hljs-string">&quot;website&quot;</span>]);
+  $comment = test_input($_POST[<span class="hljs-string">&quot;comment&quot;</span>]);
+  $gender = test_input($_POST[<span class="hljs-string">&quot;gender&quot;</span>]);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test_input</span>(<span class="hljs-params">$data</span>) </span>{
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  <span class="hljs-keyword">return</span> $data;
+}
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+<ul>
+<li>
+<p>Notice that at the start of the script, we check whether the form has been submitted using <code class="inline-code">$_SERVER[&quot;REQUEST_METHOD&quot;]</code>.</p>
+<ul>
+<li>
+<p>If the <code class="inline-code">REQUEST_METHOD</code> is <code class="inline-code">POST</code>, then the form has been submitted - and it should be validated. If it has not been submitted, skip the validation and display a blank form.</p>
+</li>
+<li>
+<p>However, in the example above, all input fields are optional. The script works fine even if the user does not enter any data.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The next step is to make input fields required and create error messages if needed.</p>
+</li>
+</ul>
+<h2 id="required-form-fields">Required Form Fields</h2>
+<ul>
+<li>
+<p>These fields cannot be empty and must be filled out in the HTML form.</p>
+</li>
+<li>
+<p>In the following code we have added some new variables: $nameErr, $emailErr, $genderErr, and $websiteErr.</p>
+<ul>
+<li>
+<p>These error variables will hold error messages for the required fields.</p>
+<ul>
+<li>
+<p>We have also added an if else statement for each <code class="inline-code">$_POST</code> variable.</p>
+<ul>
+<li>This checks if the <code class="inline-code">$_POST</code> variable is empty (with the PHP <code class="inline-code">empty()</code> function). If it is empty, an error message is stored in the different error variables, and if it is not empty, it sends the user input data through the <code class="inline-code">test_input()</code> function:</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php
+// define variables and set to empty values
+$nameErr = $emailErr = $genderErr = $websiteErr = &quot;&quot;;
+$name = $email = $gender = $comment = $website = &quot;&quot;;
+
+if ($_SERVER[&quot;REQUEST_METHOD&quot;] == &quot;POST&quot;) {
+  if (empty($_POST[&quot;name&quot;])) {
+    $nameErr = &quot;Name is required&quot;;
+  } else {
+    $name = test_input($_POST[&quot;name&quot;]);
+  }
+
+  if (empty($_POST[&quot;email&quot;])) {
+    $emailErr = &quot;Email is required&quot;;
+  } else {
+    $email = test_input($_POST[&quot;email&quot;]);
+  }
+
+  if (empty($_POST[&quot;website&quot;])) {
+    $website = &quot;&quot;;
+  } else {
+    $website = test_input($_POST[&quot;website&quot;]);
+  }
+
+  if (empty($_POST[&quot;comment&quot;])) {
+    $comment = &quot;&quot;;
+  } else {
+    $comment = test_input($_POST[&quot;comment&quot;]);
+  }
+
+  if (empty($_POST[&quot;gender&quot;])) {
+    $genderErr = &quot;Gender is required&quot;;
+  } else {
+    $gender = test_input($_POST[&quot;gender&quot;]);
+  }
+}
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-comment">// define variables and set to empty values</span>
+$nameErr = $emailErr = $genderErr = $websiteErr = <span class="hljs-string">&quot;&quot;</span>;
+$name = $email = $gender = $comment = $website = <span class="hljs-string">&quot;&quot;</span>;
+
+<span class="hljs-keyword">if</span> ($_SERVER[<span class="hljs-string">&quot;REQUEST_METHOD&quot;</span>] == <span class="hljs-string">&quot;POST&quot;</span>) {
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">empty</span>($_POST[<span class="hljs-string">&quot;name&quot;</span>])) {
+    $nameErr = <span class="hljs-string">&quot;Name is required&quot;</span>;
+  } <span class="hljs-keyword">else</span> {
+    $name = test_input($_POST[<span class="hljs-string">&quot;name&quot;</span>]);
+  }
+
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">empty</span>($_POST[<span class="hljs-string">&quot;email&quot;</span>])) {
+    $emailErr = <span class="hljs-string">&quot;Email is required&quot;</span>;
+  } <span class="hljs-keyword">else</span> {
+    $email = test_input($_POST[<span class="hljs-string">&quot;email&quot;</span>]);
+  }
+
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">empty</span>($_POST[<span class="hljs-string">&quot;website&quot;</span>])) {
+    $website = <span class="hljs-string">&quot;&quot;</span>;
+  } <span class="hljs-keyword">else</span> {
+    $website = test_input($_POST[<span class="hljs-string">&quot;website&quot;</span>]);
+  }
+
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">empty</span>($_POST[<span class="hljs-string">&quot;comment&quot;</span>])) {
+    $comment = <span class="hljs-string">&quot;&quot;</span>;
+  } <span class="hljs-keyword">else</span> {
+    $comment = test_input($_POST[<span class="hljs-string">&quot;comment&quot;</span>]);
+  }
+
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">empty</span>($_POST[<span class="hljs-string">&quot;gender&quot;</span>])) {
+    $genderErr = <span class="hljs-string">&quot;Gender is required&quot;</span>;
+  } <span class="hljs-keyword">else</span> {
+    $gender = test_input($_POST[<span class="hljs-string">&quot;gender&quot;</span>]);
+  }
+}
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+<ul>
+<li>Then in the HTML form, we add a little script after each required field, which generates the correct error message if needed (that is if the user tries to submit the form without filling out the required fields):</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;form method=&quot;post&quot; action=&quot;&lt;?php echo htmlspecialchars($_SERVER[&quot;PHP_SELF&quot;]);?&gt;&quot;&gt;
+
+Name: &lt;input type=&quot;text&quot; name=&quot;name&quot;&gt;
+&lt;span class=&quot;error&quot;&gt;* &lt;?php echo $nameErr;?&gt;&lt;/span&gt;
+&lt;br&gt;&lt;br&gt;
+E-mail:
+&lt;input type=&quot;text&quot; name=&quot;email&quot;&gt;
+&lt;span class=&quot;error&quot;&gt;* &lt;?php echo $emailErr;?&gt;&lt;/span&gt;
+&lt;br&gt;&lt;br&gt;
+Website:
+&lt;input type=&quot;text&quot; name=&quot;website&quot;&gt;
+&lt;span class=&quot;error&quot;&gt;&lt;?php echo $websiteErr;?&gt;&lt;/span&gt;
+&lt;br&gt;&lt;br&gt;
+Comment: &lt;textarea name=&quot;comment&quot; rows=&quot;5&quot; cols=&quot;40&quot;&gt;&lt;/textarea&gt;
+&lt;br&gt;&lt;br&gt;
+Gender:
+&lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;female&quot;&gt;Female
+&lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;male&quot;&gt;Male
+&lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;other&quot;&gt;Other
+&lt;span class=&quot;error&quot;&gt;* &lt;?php echo $genderErr;?&gt;&lt;/span&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+
+&lt;/form&gt;</pre><pre class="hljs"><code><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;</span></span></span><span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> htmlspecialchars($_SERVER[<span class="hljs-string">&quot;PHP_SELF&quot;</span>]);<span class="hljs-meta">?&gt;</span></span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span>
+
+Name: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;error&quot;</span>&gt;</span>* </span><span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> $nameErr;<span class="hljs-meta">?&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+E-mail:
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;email&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;error&quot;</span>&gt;</span>* </span><span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> $emailErr;<span class="hljs-meta">?&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+Website:
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;website&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;error&quot;</span>&gt;</span></span><span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> $websiteErr;<span class="hljs-meta">?&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+Comment: <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;comment&quot;</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">&quot;5&quot;</span> <span class="hljs-attr">cols</span>=<span class="hljs-string">&quot;40&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+Gender:
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;gender&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;female&quot;</span>&gt;</span>Female
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;gender&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;male&quot;</span>&gt;</span>Male
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;gender&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;other&quot;</span>&gt;</span>Other
+<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;error&quot;</span>&gt;</span>* </span><span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> $genderErr;<span class="hljs-meta">?&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Submit&quot;</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span></code></pre></div>
+<ul>
+<li>The next step is to validate the input data, that is &quot;Does the Name field contain only letters and whitespace?&quot;, and &quot;Does the E-mail field contain a valid e-mail address syntax?&quot;, and if filled out, &quot;Does the Website field contain a valid URL?&quot;.</li>
+</ul>
+<h3 id="how-to-validate-names-e-mails-and-urls">how to validate names, E-mails, and URLs</h3>
+<ul>
+<li>The code below shows a simple way to check if the name field only contains letters, dashes, apostrophes and whitespaces. If the value of the name field is not valid, then store an error message:</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">$name = test_input($_POST[&quot;name&quot;]);
+if (!preg_match(&quot;/^[a-zA-Z-' ]*$/&quot;,$name)) {
+  $nameErr = &quot;Only letters and white space allowed&quot;;
+}</pre><pre class="hljs"><code><span class="hljs-variable">$name</span> = test_input(<span class="hljs-variable">$_POST</span>[<span class="hljs-string">&quot;name&quot;</span>]);
+<span class="hljs-keyword">if</span> (!preg_match(<span class="hljs-string">&quot;/^[a-zA-Z-&#x27; ]*<span class="hljs-variable">$</span>/&quot;</span>,<span class="hljs-variable">$name</span>)) {
+  <span class="hljs-variable">$nameErr</span> = <span class="hljs-string">&quot;Only letters and white space allowed&quot;</span>;
+}</code></pre></div>
+<h4 id="the-preg_match-function-searches-a-string-for-pattern-returning-true-if-the-pattern-exists-and-false-otherwise">The <code class="inline-code">preg_match()</code> function searches a string for pattern, returning true if the pattern exists, and false otherwise.</h4>
+<ul>
+<li>
+<p>The easiest and safest way to check whether an email address is well-formed is to use PHP's <code class="inline-code">filter_var()</code> function.</p>
+</li>
+<li>
+<p>In the code below, if the e-mail address is not well-formed, then store an error message:</p>
+</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">$email = test_input($_POST[&quot;email&quot;]);
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  $emailErr = &quot;Invalid email format&quot;;
+}</pre><pre class="hljs"><code>$email = test_input($_POST[<span class="hljs-string">&quot;email&quot;</span>])<span class="hljs-comment">;</span>
+<span class="hljs-keyword">if</span> (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  $emailErr = <span class="hljs-string">&quot;Invalid email format&quot;</span><span class="hljs-comment">;</span>
+}</code></pre></div>
+<ul>
+<li>
+<p>The code below shows a way to check if a URL address syntax is valid (this regular expression also allows dashes in the URL).</p>
+<ul>
+<li>If the URL address syntax is not valid, then store an error message:</li>
+</ul>
+</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">$website = test_input($_POST[&quot;website&quot;]);
+if (!preg_match(&quot;/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&amp;@#\/%?=~_|!:,.;]*[-a-z0-9+&amp;@#\/%=~_|]/i&quot;,$website)) {
+  $websiteErr = &quot;Invalid URL&quot;;
+}</pre><pre class="hljs"><code><span class="hljs-string">$w</span>ebsite = test_input(<span class="hljs-string">$_</span>POST[<span class="hljs-comment">&quot;website&quot;</span>]);
+if (!preg_match(<span class="hljs-comment">&quot;/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&amp;@#\/%?=~_|!:,.;]*[-a-z0-9+&amp;@#\/%=~_|]/i&quot;</span>,<span class="hljs-string">$w</span>ebsite)) {
+  <span class="hljs-string">$w</span>ebsiteErr = <span class="hljs-comment">&quot;Invalid URL&quot;</span>;
+}</code></pre></div>
+<ul>
+<li>The next step is to show how to prevent the form from emptying all the input fields when the user submits the form.</li>
+</ul>
+<h2 id="how-to-persist-form-values-after-submit">How To Persist Form Values After Submit</h2>
+<ul>
+<li>
+<p>To show the values in the input fields after the user hits the submit button, we add a little PHP script inside the value attribute of the following input fields: name, email, and website.</p>
+<ul>
+<li>
+<p>In the comment textarea field, we put the script between the <code class="inline-code">&lt;textarea&gt;</code> and <code class="inline-code">&lt;/textarea&gt;</code> tags. The little script outputs the value of the $name, $email, $website, and $comment variables.</p>
+</li>
+<li>
+<p>Then, we also need to show which radio button that was checked. For this, we must manipulate the checked attribute (not the value attribute for radio buttons):</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">Name: &lt;input type=&quot;text&quot; name=&quot;name&quot; value=&quot;&lt;?php echo $name;?&gt;&quot;&gt;
+
+E-mail: &lt;input type=&quot;text&quot; name=&quot;email&quot; value=&quot;&lt;?php echo $email;?&gt;&quot;&gt;
+
+Website: &lt;input type=&quot;text&quot; name=&quot;website&quot; value=&quot;&lt;?php echo $website;?&gt;&quot;&gt;
+
+Comment: &lt;textarea name=&quot;comment&quot; rows=&quot;5&quot; cols=&quot;40&quot;&gt;&lt;?php echo $comment;?&gt;&lt;/textarea&gt;
+
+Gender:
+&lt;input type=&quot;radio&quot; name=&quot;gender&quot;
+&lt;?php if (isset($gender) &amp;&amp; $gender==&quot;female&quot;) echo &quot;checked&quot;;?&gt;
+value=&quot;female&quot;&gt;Female
+&lt;input type=&quot;radio&quot; name=&quot;gender&quot;
+&lt;?php if (isset($gender) &amp;&amp; $gender==&quot;male&quot;) echo &quot;checked&quot;;?&gt;
+value=&quot;male&quot;&gt;Male
+&lt;input type=&quot;radio&quot; name=&quot;gender&quot;
+&lt;?php if (isset($gender) &amp;&amp; $gender==&quot;other&quot;) echo &quot;checked&quot;;?&gt;
+value=&quot;other&quot;&gt;Other</pre><pre class="hljs"><code><span class="xml">Name: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;</span></span></span><span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> $name;<span class="hljs-meta">?&gt;</span></span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span>
+
+E-mail: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;email&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;</span></span></span><span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> $email;<span class="hljs-meta">?&gt;</span></span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span>
+
+Website: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;website&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;</span></span></span><span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> $website;<span class="hljs-meta">?&gt;</span></span><span class="xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span>
+
+Comment: <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;comment&quot;</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">&quot;5&quot;</span> <span class="hljs-attr">cols</span>=<span class="hljs-string">&quot;40&quot;</span>&gt;</span></span><span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">echo</span> $comment;<span class="hljs-meta">?&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+
+Gender:
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;gender&quot;</span>
+</span></span><span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">isset</span>($gender) &amp;&amp; $gender==<span class="hljs-string">&quot;female&quot;</span>) <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;checked&quot;</span>;<span class="hljs-meta">?&gt;</span></span><span class="xml"><span class="hljs-tag">
+<span class="hljs-attr">value</span>=<span class="hljs-string">&quot;female&quot;</span>&gt;</span>Female
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;gender&quot;</span>
+</span></span><span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">isset</span>($gender) &amp;&amp; $gender==<span class="hljs-string">&quot;male&quot;</span>) <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;checked&quot;</span>;<span class="hljs-meta">?&gt;</span></span><span class="xml"><span class="hljs-tag">
+<span class="hljs-attr">value</span>=<span class="hljs-string">&quot;male&quot;</span>&gt;</span>Male
+<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;gender&quot;</span>
+</span></span><span class="php"><span class="hljs-meta">&lt;?php</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">isset</span>($gender) &amp;&amp; $gender==<span class="hljs-string">&quot;other&quot;</span>) <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;checked&quot;</span>;<span class="hljs-meta">?&gt;</span></span><span class="xml"><span class="hljs-tag">
+<span class="hljs-attr">value</span>=<span class="hljs-string">&quot;other&quot;</span>&gt;</span>Other</span></code></pre></div>
+<h2 id="date-and-time">Date and Time</h2>
+<ul>
+<li>
+<p><code class="inline-code">date()</code> function formats a timestamp to a more readable date and time.</p>
+<ul>
+<li>
+<p>Syntax</p>
+<ul>
+<li><code class="inline-code">date(format,timestamp)</code></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>rameter</th>
+<th style="text-align:right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rmat</td>
+<td style="text-align:right">Required. Specifies the format of the timestamp</td>
+</tr>
+<tr>
+<td>mestamp</td>
+<td style="text-align:right">Optional. Specifies a timestamp. Default is the current date and time</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="get-a-date">Get a Date</h3>
+<ul>
+<li>
+<p>The required format parameter of the date() function specifies how to format the date (or time).</p>
+</li>
+<li>
+<p>Here are some characters that are commonly used for dates:</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Character</th>
+<th style="text-align:right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">d</td>
+<td style="text-align:right">Represents the day of the month (01 to 31)</td>
+</tr>
+<tr>
+<td style="text-align:left">m</td>
+<td style="text-align:right">Represents a month (01 to 12)</td>
+</tr>
+<tr>
+<td style="text-align:left">Y</td>
+<td style="text-align:right">Represents a year (in four digits)</td>
+</tr>
+<tr>
+<td style="text-align:left">l (lowercase 'L')</td>
+<td style="text-align:right">Represents the day of the week</td>
+</tr>
+</tbody>
+</table>
+<pre><code>* Other characters, like&quot;/&quot;, &quot;.&quot;, or &quot;-&quot; can also be inserted between the characters to add additional formatting.
+</code></pre>
+<h4 id="auto-copyright-year-copy-2010-php-echo-datey">Auto Copyright year: <code class="inline-code">&amp;copy; 2010-&lt;?php echo date(&quot;Y&quot;);?&gt;</code></h4>
+<h3 id="get-a-time">Get a Time</h3>
+<ul>
+<li>Here are some characters that are commonly used for times:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Character</th>
+<th style="text-align:right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">H</td>
+<td style="text-align:right">24-hour format of an hour (00 to 23)</td>
+</tr>
+<tr>
+<td style="text-align:left">h</td>
+<td style="text-align:right">12-hour format of an hour with leading zeros (01 to 12)</td>
+</tr>
+<tr>
+<td style="text-align:left">i</td>
+<td style="text-align:right">Minutes with leading zeros (00 to 59)</td>
+</tr>
+<tr>
+<td style="text-align:left">s</td>
+<td style="text-align:right">Seconds with leading zeros (00 to 59)</td>
+</tr>
+<tr>
+<td style="text-align:left">a</td>
+<td style="text-align:right">Lowercase Ante meridiem and Post meridiem (am or pm)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="note-that-the-php-date-function-will-return-the-current-datetime-of-the-server">Note that the PHP <code class="inline-code">date()</code> function will return the <strong>current</strong> date/time of the <strong>server</strong>!</h4>
+<h3 id="get-time-zone">Get Time Zone</h3>
+<ul>
+<li>
+<p>If you need the time to be correct according to a specific location, you can set the timezone you want to use.</p>
+</li>
+<li>
+<p>The example below sets the timezone to &quot;America/New_York&quot;, then outputs the current time in the specified format:</p>
+</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php
+date_default_timezone_set(&quot;America/New_York&quot;);
+echo &quot;The time is &quot; . date(&quot;h:i:sa&quot;);
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span>
+date_default_timezone_set(<span class="hljs-string">&quot;America/New_York&quot;</span>);
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;The time is &quot;</span> . date(<span class="hljs-string">&quot;h:i:sa&quot;</span>);
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+<h3 id="create-date-with-mktime">Create Date With <code class="inline-code">mktime()</code></h3>
+<ul>
+<li>
+<p>The optional timestamp parameter in the <code class="inline-code">date()</code> function specifies a timestamp.</p>
+<ul>
+<li>If omitted, the current date and time will be used (as in the examples above).</li>
+</ul>
+</li>
+<li>
+<p>The PHP <code class="inline-code">mktime()</code> function returns the Unix timestamp for a date.</p>
+<ul>
+<li>
+<p>The Unix timestamp contains the number of seconds between the Unix Epoch (January 1 1970 00:00:00 GMT) and the time specified.</p>
+<ul>
+<li>
+<p>Syntax</p>
+<ul>
+<li><code class="inline-code">mktime(hour, minute, second, month, day, year)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="create-date-from-string-with-strtotime">Create Date From String With strtotime()</h3>
+<ul>
+<li>
+<p>The PHP <code class="inline-code">strtotime()</code> function is used to convert a human readable date string into a Unix timestamp (the number of seconds since January 1 1970 00:00:00 GMT).</p>
+<ul>
+<li>
+<p>Syntax</p>
+<ul>
+<li><code class="inline-code">strtotime(time, now)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>PHP is quite clever about converting a string to a date, so you can put in various values:</p>
+<ul>
+<li>Example:</li>
+</ul>
+</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php
+$d=strtotime(&quot;tomorrow&quot;);
+echo date(&quot;Y-m-d h:i:sa&quot;, $d) . &quot;&lt;br&gt;&quot;;
+
+$d=strtotime(&quot;next Saturday&quot;);
+echo date(&quot;Y-m-d h:i:sa&quot;, $d) . &quot;&lt;br&gt;&quot;;
+
+$d=strtotime(&quot;+3 Months&quot;);
+echo date(&quot;Y-m-d h:i:sa&quot;, $d) . &quot;&lt;br&gt;&quot;;
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span>
+$d=strtotime(<span class="hljs-string">&quot;tomorrow&quot;</span>);
+<span class="hljs-keyword">echo</span> date(<span class="hljs-string">&quot;Y-m-d h:i:sa&quot;</span>, $d) . <span class="hljs-string">&quot;&lt;br&gt;&quot;</span>;
+
+$d=strtotime(<span class="hljs-string">&quot;next Saturday&quot;</span>);
+<span class="hljs-keyword">echo</span> date(<span class="hljs-string">&quot;Y-m-d h:i:sa&quot;</span>, $d) . <span class="hljs-string">&quot;&lt;br&gt;&quot;</span>;
+
+$d=strtotime(<span class="hljs-string">&quot;+3 Months&quot;</span>);
+<span class="hljs-keyword">echo</span> date(<span class="hljs-string">&quot;Y-m-d h:i:sa&quot;</span>, $d) . <span class="hljs-string">&quot;&lt;br&gt;&quot;</span>;
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+<pre><code>* However, strtotime() is not perfect, so remember to check the strings you put in there.
+</code></pre>
+<h2 id="include-and-require"><code class="inline-code">include</code> and <code class="inline-code">require</code></h2>
+<ul>
+<li>
+<p>The <code class="inline-code">include</code> (or <code class="inline-code">require</code>) statement takes all the text/code/markup that exists in the specified file and copies it into the file that uses the include statement.</p>
+</li>
+<li>
+<p>The <code class="inline-code">include</code> and <code class="inline-code">require</code> statements are identical, except upon failure:</p>
+<ul>
+<li>
+<p><code class="inline-code">require</code> will produce a fatal error (<code class="inline-code">E_COMPILE_ERROR</code>) and stop the script</p>
+</li>
+<li>
+<p><code class="inline-code">include</code> will only produce a warning (<code class="inline-code">E_WARNING</code>) and the script will continue</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Syntax</p>
+<ul>
+<li>
+<p><code class="inline-code">include 'filename'</code>;</p>
+</li>
+<li>
+<p><code class="inline-code">require 'filename'</code>;</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="use-require-when-the-file-is-required-by-the-application">Use <code class="inline-code">require</code> when the file <strong>is required</strong> by the application.</h4>
+<h4 id="use-include-when-the-file-is-not-required-and-application-should-continue-when-file-is-not-found">Use <code class="inline-code">include</code> when the file is <strong>not required</strong> and application should continue when file is not found.</h4>
+<h2 id="file-handling">File Handling</h2>
+<ul>
+<li>PHP has several functions for creating, reading, uploading, and editing files.</li>
+</ul>
+<h4 id="when-you-are-manipulating-files-you-must-be-very-careful">When you are manipulating files you must be very careful.</h4>
+<h4 id="you-can-do-a-lot-of-damage-if-you-do-something-wrong-common-errors-are-editing-the-wrong-file-filling-a-hard-drive-with-garbage-data-and-deleting-the-content-of-a-file-by-accident">You can do a lot of damage if you do something wrong. Common errors are: editing the wrong file, filling a hard-drive with garbage data, and deleting the content of a file by accident.</h4>
+<ul>
+<li><code class="inline-code">readfile()</code> function reads a file and writes it to the output buffer.</li>
+</ul>
+<h3 id="file-openreadclose">File Open/Read/Close</h3>
+<ul>
+<li>
+<p>A better method to open files is with the <code class="inline-code">fopen()</code> function. This function gives you more options than the <code class="inline-code">readfile()</code> function.</p>
+<ul>
+<li>
+<p>The first parameter of <code class="inline-code">fopen()</code> contains the name of the file to be opened and the second parameter specifies in which mode the file should be opened.</p>
+</li>
+<li>
+<p>The following example also generates a message if the fopen() function is unable to open the specified file:</p>
+</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php
+$myfile = fopen(&quot;webdictionary.txt&quot;, &quot;r&quot;) or die(&quot;Unable to open file!&quot;);
+echo fread($myfile,filesize(&quot;webdictionary.txt&quot;));
+fclose($myfile);
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span>
+$myfile = fopen(<span class="hljs-string">&quot;webdictionary.txt&quot;</span>, <span class="hljs-string">&quot;r&quot;</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;Unable to open file!&quot;</span>);
+<span class="hljs-keyword">echo</span> fread($myfile,filesize(<span class="hljs-string">&quot;webdictionary.txt&quot;</span>));
+fclose($myfile);
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Modes</th>
+<th style="text-align:right">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">r</td>
+<td style="text-align:right">Open a file for read only. File pointer starts at the beginning of the file</td>
+</tr>
+<tr>
+<td style="text-align:left">w</td>
+<td style="text-align:right">Open a file for write only. Erases the contents of the file or creates a new file if it doesn't exist. File pointer starts at the beginning of the file</td>
+</tr>
+<tr>
+<td style="text-align:left">a</td>
+<td style="text-align:right">Open a file for write only. The existing data in file is preserved. File pointer starts at the end of the file. Creates a new file if the file doesn't exist</td>
+</tr>
+<tr>
+<td style="text-align:left">x</td>
+<td style="text-align:right">Creates a new file for write only. Returns FALSE and an error if file already exists</td>
+</tr>
+<tr>
+<td style="text-align:left">r+</td>
+<td style="text-align:right">Open a file for read/write. File pointer starts at the beginning of the file</td>
+</tr>
+<tr>
+<td style="text-align:left">w+</td>
+<td style="text-align:right">Open a file for read/write. Erases the contents of the file or creates a new file if it doesn't exist. File pointer starts at the beginning of the file</td>
+</tr>
+<tr>
+<td style="text-align:left">a+</td>
+<td style="text-align:right">Open a file for read/write. The existing data in file is preserved. File pointer starts at the end of the file. Creates a new file if the file doesn't exist</td>
+</tr>
+<tr>
+<td style="text-align:left">x+</td>
+<td style="text-align:right">Creates a new file for read/write. Returns FALSE and an error if file already exists</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><code class="inline-code">fread()</code> function reads from an open file.</p>
+<ul>
+<li>
+<p>The first parameter contains the name of the file to read from and the second parameter specifies the maximum number of bytes to read.</p>
+</li>
+<li>
+<p>The following PHP code reads the &quot;webdictionary.txt&quot; file to the end:</p>
+<ul>
+<li><code class="inline-code">fread($myfile,filesize(&quot;webdictionary.txt&quot;));</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code class="inline-code">fclose()</code> function is used to close an open file.</p>
+<ul>
+<li><code class="inline-code">fclose()</code> requires the name of the file (or a variable that holds the filename) we want to close</li>
+</ul>
+</li>
+</ul>
+<h4 id="its-a-good-programming-practice-to-close-all-files-after-you-have-finished-with-them-you-dont-want-an-open-file-running-around-on-your-server-taking-up-resources">It's a good programming practice to close all files after you have finished with them. You don't want an open file running around on your server taking up resources!</h4>
+<ul>
+<li><code class="inline-code">fgets()</code> function is used to read a single line from a file.</li>
+</ul>
+<h4 id="after-a-call-to-the-fgets-function-the-file-pointer-has-moved-to-the-next-line">After a call to the <code class="inline-code">fgets()</code> function, the file pointer has moved to the next line.</h4>
+<ul>
+<li>
+<p><code class="inline-code">feof()</code> function checks if the &quot;end-of-file&quot; (EOF) has been reached.</p>
+<ul>
+<li>useful for looping through data of unknown length.</li>
+</ul>
+</li>
+<li>
+<p><code class="inline-code">fgetc()</code> function is used to read a single character from a file.</p>
+</li>
+</ul>
+<h4 id="after-a-call-to-the-fgetc-function-the-file-pointer-moves-to-the-next-character">After a call to the <code class="inline-code">fgetc()</code> function, the file pointer moves to the next character.</h4>
+<h3 id="file-createwrite">File Create/Write</h3>
+<ul>
+<li>
+<p><code class="inline-code">fopen()</code> function is also used to create a file.</p>
+<ul>
+<li>
+<p>If you use <code class="inline-code">fopen()</code> on a file that does not exist, it will create it, given that the file is opened for writing <code class="inline-code">w</code> or appending <code class="inline-code">a</code>.</p>
+</li>
+<li>
+<p>The example below creates a new file called &quot;testfile.txt&quot;. The file will be created in the same directory where the PHP code resides:</p>
+<ul>
+<li><code class="inline-code">$myfile = fopen(&quot;testfile.txt&quot;, &quot;w&quot;)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="if-you-are-having-errors-when-trying-to-get-this-code-to-run-check-that-you-have-granted-your-php-file-access-to-write-information-to-the-hard-drive">If you are having errors when trying to get this code to run, check that you have granted your PHP file access to write information to the hard drive.</h4>
+<ul>
+<li>
+<p><code class="inline-code">fwrite()</code> function is used to write to a file.</p>
+<ul>
+<li>
+<p>The first parameter of <code class="inline-code">fwrite()</code> contains the name of the file to write to and the second parameter is the string to be written.</p>
+</li>
+<li>
+<p>The example below writes a couple of names into a new file called &quot;newfile.txt&quot;:</p>
+</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php
+$myfile = fopen(&quot;newfile.txt&quot;, &quot;w&quot;) or die(&quot;Unable to open file!&quot;);
+$txt = &quot;John Doe\n&quot;;
+fwrite($myfile, $txt);
+$txt = &quot;Jane Doe\n&quot;;
+fwrite($myfile, $txt);
+fclose($myfile);
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span>
+$myfile = fopen(<span class="hljs-string">&quot;newfile.txt&quot;</span>, <span class="hljs-string">&quot;w&quot;</span>) <span class="hljs-keyword">or</span> <span class="hljs-keyword">die</span>(<span class="hljs-string">&quot;Unable to open file!&quot;</span>);
+$txt = <span class="hljs-string">&quot;John Doe\n&quot;</span>;
+fwrite($myfile, $txt);
+$txt = <span class="hljs-string">&quot;Jane Doe\n&quot;</span>;
+fwrite($myfile, $txt);
+fclose($myfile);
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+</li>
+</ul>
+<h3 id="file-upload">File Upload</h3>
+<h4 id="first-ensure-that-php-is-configured-to-allow-file-uploads">First, ensure that PHP is configured to allow file uploads.</h4>
+<ul>
+<li>In your &quot;php.ini&quot; file, search for the <code class="inline-code">file_uploads</code> directive, and set it to On.</li>
+</ul>
+<h4 id="some-rules-to-follow-for-the-html-upload-form">Some rules to follow for the HTML upload form:</h4>
+<pre><code>* Make sure that the form uses method=&quot;post&quot;
+
+* The form also needs the following attribute: `enctype=&quot;multipart/form-data&quot;`. It specifies which content-type to use when submitting the form
+
+* Without the requirements above, the file upload will not work.
+
+* The `type=&quot;file&quot;` attribute of the `&lt;input&gt;` tag shows the input field as a file-select control, with a &quot;Browse&quot; button next to the input control.
+
+* Upload form example:
+
+```
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;body&gt;
+		&lt;form action=&quot;upload.php&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+  			Select image to upload:
+  			&lt;input type=&quot;file&quot; name=&quot;fileToUpload&quot; id=&quot;fileToUpload&quot;&gt;
+  			&lt;input type=&quot;submit&quot; value=&quot;Upload Image&quot; name=&quot;submit&quot;&gt;
+		&lt;/form&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+```
+</code></pre>
+<ul>
+<li>The &quot;upload.php&quot; file contains the code for uploading a file:</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">&lt;?php
+$target_dir = &quot;uploads/&quot;;
+$target_file = $target_dir . basename($_FILES[&quot;fileToUpload&quot;][&quot;name&quot;]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+// Check if image file is a actual image or fake image
+if(isset($_POST[&quot;submit&quot;])) {
+  $check = getimagesize($_FILES[&quot;fileToUpload&quot;][&quot;tmp_name&quot;]);
+  if($check !== false) {
+    echo &quot;File is an image - &quot; . $check[&quot;mime&quot;] . &quot;.&quot;;
+    $uploadOk = 1;
+  } else {
+    echo &quot;File is not an image.&quot;;
+    $uploadOk = 0;
+  }
+}
+?&gt;</pre><pre class="hljs"><code><span class="hljs-meta">&lt;?php</span>
+$target_dir = <span class="hljs-string">&quot;uploads/&quot;</span>;
+$target_file = $target_dir . basename($_FILES[<span class="hljs-string">&quot;fileToUpload&quot;</span>][<span class="hljs-string">&quot;name&quot;</span>]);
+$uploadOk = <span class="hljs-number">1</span>;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+<span class="hljs-comment">// Check if image file is a actual image or fake image</span>
+<span class="hljs-keyword">if</span>(<span class="hljs-keyword">isset</span>($_POST[<span class="hljs-string">&quot;submit&quot;</span>])) {
+  $check = getimagesize($_FILES[<span class="hljs-string">&quot;fileToUpload&quot;</span>][<span class="hljs-string">&quot;tmp_name&quot;</span>]);
+  <span class="hljs-keyword">if</span>($check !== <span class="hljs-literal">false</span>) {
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;File is an image - &quot;</span> . $check[<span class="hljs-string">&quot;mime&quot;</span>] . <span class="hljs-string">&quot;.&quot;</span>;
+    $uploadOk = <span class="hljs-number">1</span>;
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;File is not an image.&quot;</span>;
+    $uploadOk = <span class="hljs-number">0</span>;
+  }
+}
+<span class="hljs-meta">?&gt;</span></code></pre></div>
+<ul>
+<li>
+<p>Script Explanation:</p>
+<ul>
+<li>
+<p><code class="inline-code">$target_dir = &quot;uploads/&quot;</code> - specifies the directory where the file is going to be placed</p>
+</li>
+<li>
+<p><code class="inline-code">$target_file</code> specifies the path of the file to be uploaded</p>
+</li>
+<li>
+<p><code class="inline-code">$uploadOk=1</code> is not used yet (will be used later)</p>
+</li>
+<li>
+<p><code class="inline-code">$imageFileType</code> holds the file extension of the file (in lower case)</p>
+</li>
+<li>
+<p>Next, check if the image file is an actual image or a fake image</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="you-will-need-to-create-a-new-directory-called-uploads-in-the-directory-where-uploadphp-file-resides-the-uploaded-files-will-be-saved-there">You will need to create a new directory called &quot;uploads&quot; in the directory where &quot;upload.php&quot; file resides. The uploaded files will be saved there.</h4>
+<ul>
+<li>
+<p>Now we can add some restrictions.</p>
+</li>
+<li>
+<p>First, we will check if the file already exists in the &quot;uploads&quot; folder. If it does, an error message is displayed, and <code class="inline-code">$uploadOk</code> is set to 0:</p>
+</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">// Check if file already exists
+if (file_exists($target_file)) {
+  echo &quot;Sorry, file already exists.&quot;;
+  $uploadOk = 0;
+}</pre><pre class="hljs"><code><span class="hljs-regexp">//</span> Check <span class="hljs-keyword">if</span> file already exists
+<span class="hljs-keyword">if</span> (file_exists(<span class="hljs-variable">$target_file</span>)) {
+  echo <span class="hljs-string">&quot;Sorry, file already exists.&quot;</span>;
+  <span class="hljs-variable">$uploadOk</span> = <span class="hljs-number">0</span>;
+}</code></pre></div>
+<ul>
+<li>Now, we want to check the size of the file. If the file is larger than 500KB, an error message is displayed, and <code class="inline-code">$uploadOk</code> is set to 0:</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">// Check file size
+if ($_FILES[&quot;fileToUpload&quot;][&quot;size&quot;] &gt; 500000) {
+  echo &quot;Sorry, your file is too large.&quot;;
+  $uploadOk = 0;
+}</pre><pre class="hljs"><code>// Check file size
+if ($<span class="hljs-emphasis">_FILES[<span class="hljs-string">&quot;fileToUpload&quot;</span>][<span class="hljs-symbol">&quot;size&quot;</span>] &gt; 500000) {
+  echo &quot;Sorry, your file is too large.&quot;;
+  $uploadOk = 0;
+}</span></code></pre></div>
+<ul>
+<li>The code below only allows users to upload JPG, JPEG, PNG, and GIF files. All other file types gives an error message before setting <code class="inline-code">$uploadOk</code> to 0:</li>
+</ul>
+<div class="joplin-editable"><pre class="joplin-source" data-joplin-language="" data-joplin-source-open="```&#10;" data-joplin-source-close="&#10;```">// Allow certain file formats
+if($imageFileType != &quot;jpg&quot; &amp;&amp; $imageFileType != &quot;png&quot; &amp;&amp; $imageFileType != &quot;jpeg&quot;
+&amp;&amp; $imageFileType != &quot;gif&quot; ) {
+  echo &quot;Sorry, only JPG, JPEG, PNG &amp; GIF files are allowed.&quot;;
+  $uploadOk = 0;
+}</pre><pre class="hljs"><code><span class="hljs-regexp">//</span> Allow certain file formats
+<span class="hljs-keyword">if</span>(<span class="hljs-variable">$imageFileType</span> != <span class="hljs-string">&quot;jpg&quot;</span> &amp;&amp; <span class="hljs-variable">$imageFileType</span> != <span class="hljs-string">&quot;png&quot;</span> &amp;&amp; <span class="hljs-variable">$imageFileType</span> != <span class="hljs-string">&quot;jpeg&quot;</span>
+&amp;&amp; <span class="hljs-variable">$imageFileType</span> != <span class="hljs-string">&quot;gif&quot;</span> ) {
+  echo <span class="hljs-string">&quot;Sorry, only JPG, JPEG, PNG &amp; GIF files are allowed.&quot;</span>;
+  <span class="hljs-variable">$uploadOk</span> = <span class="hljs-number">0</span>;
+}</code></pre></div>
+</div></div>
+					</body>
+				</html>
+			

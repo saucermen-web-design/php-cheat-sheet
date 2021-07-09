@@ -1,0 +1,89 @@
+Arrays
+
+# Arrays
+
+* `array()` function is used to create an array
+
+* In PHP, there are three types of arrays:
+
+	* Indexed arrays - Arrays with a numeric index
+
+	* Associative arrays - Arrays with named keys
+
+	* Multidimensional arrays - Arrays containing one or more arrays
+
+* `count()` function is used to return the length (the number of elements) of an array.
+
+## Indexed Arrays
+
+* Example of looping through an indexed array:
+
+```
+<?php
+$cars = array("Volvo", "BMW", "Toyota");
+$arrlength = count($cars);
+
+for($x = 0; $x < $arrlength; $x++) {
+  echo $cars[$x];
+  echo "<br>";
+}
+?>
+```
+
+## Associative Arrays
+
+* Associative arrays are arrays that use named keys that you assign to them.  The named keys can then be used in a script.
+
+* Example:
+
+```
+<?php
+$age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+echo "Peter is " . $age['Peter'] . " years old.";
+?>
+```
+
+* To loop through and print all the values of an associative array, you could use a `foreach` loop.
+
+* Example: 
+
+```
+<?php
+$age = array("Peter"=>"35", "Ben"=>"37", "Joe"=>"43");
+
+foreach($age as $x => $x_value) {
+  echo "Key=" . $x . ", Value=" . $x_value;
+  echo "<br>";
+}
+?>
+```
+
+## Multi-dimensional Arrays
+
+* A multidimensional array is an array containing one or more arrays.
+
+* PHP supports multidimensional arrays that are two, three, four, five, or more levels deep. However, arrays more than three levels deep are hard to manage for most people.
+
+#### The dimension of an array indicates the number of indices you need to select an element.
+
+* For a **two-dimensional** array you need **two indices** to select an element
+
+* For a **three-dimensional** array you need **three indices** to select an element
+
+## Sorting Arrays
+
+* The elements in an array can be sorted in alphabetical or numerical order, descending or ascending.
+
+* Array sort functions:
+
+	* sort() - sort arrays in ascending order
+	
+	* rsort() - sort arrays in descending order
+
+	* asort() - sort associative arrays in ascending order, according to the value
+
+	* ksort() - sort associative arrays in ascending order, according to the key
+
+	* arsort() - sort associative arrays in descending order, according to the value
+
+	* krsort() - sort associative arrays in descending order, according to the key
